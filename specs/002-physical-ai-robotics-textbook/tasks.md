@@ -25,12 +25,12 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create textbook directory structure (textbook/modules/, textbook/case-studies/, textbook/appendices/, textbook/assets/, textbook/build/)
-- [ ] T002 Create tests directory structure (tests/content/, tests/code-examples/)
-- [ ] T003 [P] Create Python requirements.txt with validation dependencies (pyyaml, jsonschema, markdown-it-py, pytest)
-- [ ] T004 [P] Create module template directory at textbook/modules/_template/ with placeholder files
-- [ ] T005 [P] Create lab template at textbook/modules/_template/labs/_template.md
-- [ ] T006 [P] Create assets subdirectories (textbook/assets/images/, textbook/assets/diagrams/, textbook/assets/code-examples/, textbook/assets/robot-models/)
+- [x] T001 Create textbook directory structure (textbook/modules/, textbook/case-studies/, textbook/appendices/, textbook/assets/, textbook/build/)
+- [x] T002 Create tests directory structure (tests/content/, tests/code-examples/)
+- [x] T003 [P] Create Python requirements.txt with validation dependencies (pyyaml, jsonschema, markdown-it-py, pytest)
+- [x] T004 [P] Create module template directory at textbook/modules/_template/ with placeholder files
+- [x] T005 [P] Create lab template at textbook/modules/_template/labs/_template.md
+- [x] T006 [P] Create assets subdirectories (textbook/assets/images/, textbook/assets/diagrams/, textbook/assets/code-examples/, textbook/assets/robot-models/)
 
 ---
 
@@ -40,16 +40,16 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T007 Implement content structure validation script at tests/content/validate-structure.py (validates module frontmatter against schema)
-- [ ] T008 [P] Create Python code example extraction utility at tests/content/extract-code.py (extracts code from markdown)
-- [ ] T009 [P] Implement schema validation helper at tests/content/validate-schema.py (validates YAML against module-schema.yaml)
-- [ ] T010 [P] Create module frontmatter validator at tests/content/validate-frontmatter.py (checks prerequisites, learning objectives count)
-- [ ] T011 [P] Create lab structure validator at tests/content/validate-labs.py (ensures 3-5 labs per module, proper format)
-- [ ] T012 Create validation runner script at scripts/validate-all.sh (runs all validation scripts)
-- [ ] T013 [P] Create HTML preview generator at scripts/preview.py (converts markdown to HTML for preview)
-- [ ] T014 [P] Setup MuJoCo simulation environment configuration at textbook/assets/robot-models/mujoco/
-- [ ] T015 [P] Setup Gazebo simulation environment configuration at textbook/assets/robot-models/gazebo/
-- [ ] T016 Create Docker configuration for ROS2 Humble environment at docker/ros2-humble/Dockerfile
+- [x] T007 Implement content structure validation script at tests/content/validate-structure.py (validates module frontmatter against schema)
+- [x] T008 [P] Create Python code example extraction utility at tests/content/extract-code.py (extracts code from markdown)
+- [x] T009 [P] Implement schema validation helper at tests/content/validate-schema.py (validates YAML against module-schema.yaml)
+- [x] T010 [P] Create module frontmatter validator at tests/content/validate-frontmatter.py (checks prerequisites, learning objectives count)
+- [x] T011 [P] Create lab structure validator at tests/content/validate-labs.py (ensures 3-5 labs per module, proper format)
+- [x] T012 Create validation runner script at scripts/validate-all.sh (runs all validation scripts)
+- [x] T013 [P] Create HTML preview generator at scripts/preview.py (converts markdown to HTML for preview)
+- [x] T014 [P] Setup MuJoCo simulation environment configuration at textbook/assets/robot-models/mujoco/
+- [x] T015 [P] Setup Gazebo simulation environment configuration at textbook/assets/robot-models/gazebo/
+- [x] T016 Create Docker configuration for ROS2 Humble environment at docker/ros2-humble/Dockerfile
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -65,40 +65,40 @@
 
 **Beginner Modules (Weeks 1-4)**
 
-- [ ] T017 [P] [US1] Create Module 01 directory structure at textbook/modules/01-introduction-physical-ai/
-- [ ] T018 [P] [US1] Create Module 02 directory structure at textbook/modules/02-rigid-body-dynamics/
-- [ ] T019 [P] [US1] Create Module 03 directory structure at textbook/modules/03-kinematics-fundamentals/
-- [ ] T020 [P] [US1] Create Module 04 directory structure at textbook/modules/04-sensors-perception/
-- [ ] T021 [P] [US1] Write Module 01 theory content in textbook/modules/01-introduction-physical-ai/theory.md (Physical AI overview, history, applications)
-- [ ] T022 [P] [US1] Write Module 02 theory content in textbook/modules/02-rigid-body-dynamics/theory.md (Newton-Euler equations, forces, torques)
-- [ ] T023 [P] [US1] Write Module 03 theory content in textbook/modules/03-kinematics-fundamentals/theory.md (Forward/inverse kinematics, DH parameters)
-- [ ] T024 [P] [US1] Write Module 04 theory content in textbook/modules/04-sensors-perception/theory.md (IMU, cameras, LIDAR, sensor fusion)
+- [x] T017 [P] [US1] Create Module 01 directory structure at textbook/modules/01-introduction-physical-ai/
+- [x] T018 [P] [US1] Create Module 02 directory structure at textbook/modules/02-rigid-body-dynamics/
+- [x] T019 [P] [US1] Create Module 03 directory structure at textbook/modules/03-kinematics-fundamentals/
+- [x] T020 [P] [US1] Create Module 04 directory structure at textbook/modules/04-sensors-perception/
+- [x] T021 [P] [US1] Write Module 01 theory content in textbook/modules/01-introduction-physical-ai/theory.md (Physical AI overview, history, applications)
+- [x] T022 [P] [US1] Write Module 02 theory content in textbook/modules/02-rigid-body-dynamics/theory.md (Newton-Euler equations, forces, torques)
+- [x] T023 [P] [US1] Write Module 03 theory content in textbook/modules/03-kinematics-fundamentals/theory.md (Forward/inverse kinematics, DH parameters)
+- [x] T024 [P] [US1] Write Module 04 theory content in textbook/modules/04-sensors-perception/theory.md (IMU, cameras, LIDAR, sensor fusion)
 
 **Intermediate Modules (Weeks 5-10)**
 
-- [ ] T025 [P] [US1] Create Module 05 directory structure at textbook/modules/05-dynamics-control/
-- [ ] T026 [P] [US1] Create Module 06 directory structure at textbook/modules/06-motion-planning/
-- [ ] T027 [P] [US1] Create Module 07 directory structure at textbook/modules/07-manipulation/
-- [ ] T028 [P] [US1] Create Module 08 directory structure at textbook/modules/08-locomotion/
-- [ ] T029 [P] [US1] Create Module 09 directory structure at textbook/modules/09-ros2-integration/
-- [ ] T030 [P] [US1] Create Module 10 directory structure at textbook/modules/10-simulation-to-real/
-- [ ] T031 [P] [US1] Write Module 05 theory content in textbook/modules/05-dynamics-control/theory.md (PID, computed torque, adaptive control)
-- [ ] T032 [P] [US1] Write Module 06 theory content in textbook/modules/06-motion-planning/theory.md (RRT, A*, trajectory optimization)
-- [ ] T033 [P] [US1] Write Module 07 theory content in textbook/modules/07-manipulation/theory.md (Grasping, force control, dexterous manipulation)
-- [ ] T034 [P] [US1] Write Module 08 theory content in textbook/modules/08-locomotion/theory.md (ZMP, whole-body control, bipedal walking)
-- [ ] T035 [P] [US1] Write Module 09 theory content in textbook/modules/09-ros2-integration/theory.md (ROS2 architecture, nodes, topics, services)
-- [ ] T036 [P] [US1] Write Module 10 theory content in textbook/modules/10-simulation-to-real/theory.md (Sim-to-real transfer, domain randomization)
+- [x] T025 [P] [US1] Create Module 05 directory structure at textbook/modules/05-dynamics-control/
+- [x] T026 [P] [US1] Create Module 06 directory structure at textbook/modules/06-motion-planning/
+- [x] T027 [P] [US1] Create Module 07 directory structure at textbook/modules/07-manipulation/
+- [x] T028 [P] [US1] Create Module 08 directory structure at textbook/modules/08-locomotion/
+- [x] T029 [P] [US1] Create Module 09 directory structure at textbook/modules/09-ros2-integration/
+- [x] T030 [P] [US1] Create Module 10 directory structure at textbook/modules/10-simulation-to-real/
+- [x] T031 [P] [US1] Write Module 05 theory content in textbook/modules/05-dynamics-control/theory.md (PID, computed torque, adaptive control)
+- [x] T032 [P] [US1] Write Module 06 theory content in textbook/modules/06-motion-planning/theory.md (RRT, A*, trajectory optimization)
+- [x] T033 [P] [US1] Write Module 07 theory content in textbook/modules/07-manipulation/theory.md (Grasping, force control, dexterous manipulation)
+- [x] T034 [P] [US1] Write Module 08 theory content in textbook/modules/08-locomotion/theory.md (ZMP, whole-body control, bipedal walking)
+- [x] T035 [P] [US1] Write Module 09 theory content in textbook/modules/09-ros2-integration/theory.md (ROS2 architecture, nodes, topics, services)
+- [x] T036 [P] [US1] Write Module 10 theory content in textbook/modules/10-simulation-to-real/theory.md (Sim-to-real transfer, domain randomization)
 
 **Advanced Modules (Weeks 11-14)**
 
-- [ ] T037 [P] [US1] Create Module 11 directory structure at textbook/modules/11-learning-based-control/
-- [ ] T038 [P] [US1] Create Module 12 directory structure at textbook/modules/12-human-robot-interaction/
-- [ ] T039 [P] [US1] Create Module 13 directory structure at textbook/modules/13-full-body-autonomy/
-- [ ] T040 [P] [US1] Create Module 14 directory structure at textbook/modules/14-capstone-integration/
-- [ ] T041 [P] [US1] Write Module 11 theory content in textbook/modules/11-learning-based-control/theory.md (RL, imitation learning, policy optimization)
-- [ ] T042 [P] [US1] Write Module 12 theory content in textbook/modules/12-human-robot-interaction/theory.md (Safety, collaboration, natural interfaces)
-- [ ] T043 [P] [US1] Write Module 13 theory content in textbook/modules/13-full-body-autonomy/theory.md (Integrated perception-planning-control, decision making)
-- [ ] T044 [P] [US1] Write Module 14 theory content in textbook/modules/14-capstone-integration/theory.md (System integration, project design, deployment)
+- [x] T037 [P] [US1] Create Module 11 directory structure at textbook/modules/11-learning-based-control/
+- [x] T038 [P] [US1] Create Module 12 directory structure at textbook/modules/12-human-robot-interaction/
+- [x] T039 [P] [US1] Create Module 13 directory structure at textbook/modules/13-full-body-autonomy/
+- [x] T040 [P] [US1] Create Module 14 directory structure at textbook/modules/14-capstone-integration/
+- [x] T041 [P] [US1] Write Module 11 theory content in textbook/modules/11-learning-based-control/theory.md (RL, imitation learning, policy optimization)
+- [x] T042 [P] [US1] Write Module 12 theory content in textbook/modules/12-human-robot-interaction/theory.md (Safety, collaboration, natural interfaces)
+- [x] T043 [P] [US1] Write Module 13 theory content in textbook/modules/13-full-body-autonomy/theory.md (Integrated perception-planning-control, decision making)
+- [x] T044 [P] [US1] Write Module 14 theory content in textbook/modules/14-capstone-integration/theory.md (System integration, project design, deployment)
 
 **Module Metadata and Cross-References**
 
@@ -263,37 +263,37 @@
 
 **Manufacturing & Logistics (35% - 5 case studies)**
 
-- [ ] T158 [P] [US3] Create case study at textbook/case-studies/manufacturing/2024-figure-bmw.md (Figure AI + BMW Spartanburg humanoid deployment)
-- [ ] T159 [P] [US3] Create case study at textbook/case-studies/manufacturing/2024-tesla-optimus.md (Tesla Optimus factory deployment)
-- [ ] T160 [P] [US3] Create case study at textbook/case-studies/manufacturing/2024-amazon-digit.md (Amazon + Agility Digit fulfillment centers)
-- [ ] T161 [P] [US3] Create case study at textbook/case-studies/manufacturing/2024-apptronik-mercedes.md (Apptronik Apollo + Mercedes-Benz)
-- [ ] T162 [P] [US3] Create case study at textbook/case-studies/manufacturing/2023-warehouse-automation.md (Warehouse robotics trends)
+- [x] T158 [P] [US3] Create case study at textbook/case-studies/manufacturing/2024-figure-bmw.md (Figure AI + BMW Spartanburg humanoid deployment)
+- [x] T159 [P] [US3] Create case study at textbook/case-studies/manufacturing/2024-tesla-optimus.md (Tesla Optimus factory deployment)
+- [x] T160 [P] [US3] Create case study at textbook/case-studies/manufacturing/2024-amazon-digit.md (Amazon + Agility Digit fulfillment centers)
+- [x] T161 [P] [US3] Create case study at textbook/case-studies/manufacturing/2024-apptronik-mercedes.md (Apptronik Apollo + Mercedes-Benz)
+- [x] T162 [P] [US3] Create case study at textbook/case-studies/manufacturing/2023-warehouse-automation.md (Warehouse robotics trends)
 
 **Healthcare & Rehabilitation (25% - 3 case studies)**
 
-- [ ] T163 [P] [US3] Create case study at textbook/case-studies/healthcare/2024-diligent-moxi.md (Diligent Robotics Moxi hospital logistics)
-- [ ] T164 [P] [US3] Create case study at textbook/case-studies/healthcare/2023-toyota-hsr.md (Toyota HSR elder care research)
-- [ ] T165 [P] [US3] Create case study at textbook/case-studies/healthcare/2023-exoskeleton-rehab.md (ReWalk/Ekso rehabilitation)
+- [x] T163 [P] [US3] Create case study at textbook/case-studies/healthcare/2024-diligent-moxi.md (Diligent Robotics Moxi hospital logistics)
+- [x] T164 [P] [US3] Create case study at textbook/case-studies/healthcare/2023-toyota-hsr.md (Toyota HSR elder care research)
+- [x] T165 [P] [US3] Create case study at textbook/case-studies/healthcare/2023-exoskeleton-rehab.md (ReWalk/Ekso rehabilitation)
 
 **Research & Academia (20% - 3 case studies)**
 
-- [ ] T166 [P] [US3] Create case study at textbook/case-studies/research/2024-mit-humanoid-lab.md (MIT dynamic locomotion research)
-- [ ] T167 [P] [US3] Create case study at textbook/case-studies/research/2024-berkeley-bair.md (UC Berkeley manipulation and learning)
-- [ ] T168 [P] [US3] Create case study at textbook/case-studies/research/2023-stanford-iris.md (Stanford HRI research)
+- [x] T166 [P] [US3] Create case study at textbook/case-studies/research/2024-mit-humanoid-lab.md (MIT dynamic locomotion research)
+- [x] T167 [P] [US3] Create case study at textbook/case-studies/research/2024-berkeley-bair.md (UC Berkeley manipulation and learning)
+- [x] T168 [P] [US3] Create case study at textbook/case-studies/research/2023-stanford-iris.md (Stanford HRI research)
 
 **Disaster Response & Hazardous (12% - 2 case studies)**
 
-- [ ] T169 [P] [US3] Create case study at textbook/case-studies/disaster/2024-boston-dynamics-atlas.md (Boston Dynamics Atlas DARPA/construction)
-- [ ] T170 [P] [US3] Create case study at textbook/case-studies/disaster/2023-anymal-inspection.md (ANYbotics ANYmal hazardous inspection)
+- [x] T169 [P] [US3] Create case study at textbook/case-studies/disaster/2024-boston-dynamics-atlas.md (Boston Dynamics Atlas DARPA/construction)
+- [x] T170 [P] [US3] Create case study at textbook/case-studies/disaster/2023-anymal-inspection.md (ANYbotics ANYmal hazardous inspection)
 
 **Consumer & Service (8% - 1 case study)**
 
-- [ ] T171 [P] [US3] Create case study at textbook/case-studies/consumer/2025-1x-neo.md (1X EVE/NEO home assistant development)
+- [x] T171 [P] [US3] Create case study at textbook/case-studies/consumer/2025-1x-neo.md (1X EVE/NEO home assistant development)
 
 ### Case Study Integration
 
 - [ ] T172 [US3] Link case studies to related modules by adding references in module theory.md files
-- [ ] T173 [US3] Create case study index at textbook/case-studies/index.md with domain distribution summary
+- [x] T173 [US3] Create case study index at textbook/case-studies/index.md with domain distribution summary
 - [ ] T174 [US3] Add case study discussion questions to relevant module ethics sections
 - [ ] T175 [US3] Create case study validation script at tests/content/validate-case-studies.py (checks year, domain distribution, module links)
 
