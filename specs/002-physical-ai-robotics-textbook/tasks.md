@@ -139,9 +139,9 @@
 - [x] T061 [P] [US2] Create Lab 05-02 (intermediate, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-02.md (Computed torque control)
 - [x] T062 [P] [US2] Create Lab 05-03 (challenge, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-03.md (Adaptive control for perturbations)
 - [x] T063 [P] [US2] Create Lab 06-01 (guided, simulation) at textbook/modules/06-motion-planning/labs/lab-06-01.md (RRT path planning)
-- [ ] T064 [P] [US2] Create Lab 06-02 (intermediate, simulation) at textbook/modules/06-motion-planning/labs/lab-06-02.md (A* with heuristics)
-- [ ] T065 [P] [US2] Create Lab 06-03 (challenge, simulation) at textbook/modules/06-motion-planning/labs/lab-06-03.md (Trajectory optimization)
-- [ ] T066 [P] [US2] Create Lab 07-01 (guided, simulation) at textbook/modules/07-manipulation/labs/lab-07-01.md (Basic grasping)
+- [x] T064 [P] [US2] Create Lab 06-02 (intermediate, simulation) at textbook/modules/06-motion-planning/labs/lab-06-02.md (A* with heuristics)
+- [x] T065 [P] [US2] Create Lab 06-03 (challenge, simulation) at textbook/modules/06-motion-planning/labs/lab-06-03.md (Trajectory optimization)
+- [x] T066 [P] [US2] Create Lab 07-01 (guided, simulation) at textbook/modules/07-manipulation/labs/lab-07-01.md (Basic grasping)
 - [ ] T067 [P] [US2] Create Lab 07-02 (intermediate, simulation) at textbook/modules/07-manipulation/labs/lab-07-02.md (Force control)
 - [ ] T068 [P] [US2] Create Lab 07-03 (challenge, simulation) at textbook/modules/07-manipulation/labs/lab-07-03.md (Dexterous multi-finger grasp)
 - [ ] T069 [P] [US2] Create Lab 08-01 (guided, simulation) at textbook/modules/08-locomotion/labs/lab-08-01.md (ZMP calculation)
@@ -176,7 +176,7 @@
 - [x] T092 [P] [US2] Create MuJoCo simulation config for Module 03 at textbook/modules/03-kinematics-fundamentals/simulations/mujoco-config.yaml
 - [x] T093 [P] [US2] Create MuJoCo simulation config for Module 04 at textbook/modules/04-sensors-perception/simulations/mujoco-config.yaml
 - [x] T094 [P] [US2] Create MuJoCo simulation config for Module 05 at textbook/modules/05-dynamics-control/simulations/mujoco-config.yaml
-- [ ] T095 [P] [US2] Create MuJoCo simulation config for Module 06 at textbook/modules/06-motion-planning/simulations/mujoco-config.yaml
+- [x] T095 [P] [US2] Create MuJoCo simulation config for Module 06 at textbook/modules/06-motion-planning/simulations/mujoco-config.yaml
 - [ ] T096 [P] [US2] Create MuJoCo simulation config for Module 07 at textbook/modules/07-manipulation/simulations/mujoco-config.yaml
 - [ ] T097 [P] [US2] Create MuJoCo simulation config for Module 08 at textbook/modules/08-locomotion/simulations/mujoco-config.yaml
 - [ ] T098 [P] [US2] Create Gazebo simulation config for Module 09 at textbook/modules/09-ros2-integration/simulations/gazebo-config.yaml
@@ -193,7 +193,7 @@
 - [x] T106 [P] [US2] Write ethics content for Module 03 at textbook/modules/03-kinematics-fundamentals/ethics.md (Workspace safety, collision avoidance)
 - [x] T107 [P] [US2] Write ethics content for Module 04 at textbook/modules/04-sensors-perception/ethics.md (Privacy, surveillance, data ethics)
 - [x] T108 [P] [US2] Write ethics content for Module 05 at textbook/modules/05-dynamics-control/ethics.md (Control failure responsibility, conservative tuning)
-- [ ] T109 [P] [US2] Write ethics content for Module 06 at textbook/modules/06-motion-planning/ethics.md (Predictable behavior, transparency)
+- [x] T109 [P] [US2] Write ethics content for Module 06 at textbook/modules/06-motion-planning/ethics.md (Predictable behavior, transparency)
 - [ ] T110 [P] [US2] Write ethics content for Module 07 at textbook/modules/07-manipulation/ethics.md (Force limits, safe interaction)
 - [ ] T111 [P] [US2] Write ethics content for Module 08 at textbook/modules/08-locomotion/ethics.md (Public space navigation, accessibility)
 - [ ] T112 [P] [US2] Write ethics content for Module 09 at textbook/modules/09-ros2-integration/ethics.md (Software quality, testing standards)
@@ -210,7 +210,7 @@
 - [x] T120 [P] [US2] Create assessment package for Module 03 at textbook/modules/03-kinematics-fundamentals/assessment.md
 - [x] T121 [P] [US2] Create assessment package for Module 04 at textbook/modules/04-sensors-perception/assessment.md
 - [x] T122 [P] [US2] Create assessment package for Module 05 at textbook/modules/05-dynamics-control/assessment.md
-- [ ] T123 [P] [US2] Create assessment package for Module 06 at textbook/modules/06-motion-planning/assessment.md
+- [x] T123 [P] [US2] Create assessment package for Module 06 at textbook/modules/06-motion-planning/assessment.md
 - [ ] T124 [P] [US2] Create assessment package for Module 07 at textbook/modules/07-manipulation/assessment.md
 - [ ] T125 [P] [US2] Create assessment package for Module 08 at textbook/modules/08-locomotion/assessment.md
 - [ ] T126 [P] [US2] Create assessment package for Module 09 at textbook/modules/09-ros2-integration/assessment.md
