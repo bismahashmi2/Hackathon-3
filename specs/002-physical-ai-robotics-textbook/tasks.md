@@ -138,7 +138,7 @@
 - [x] T060 [P] [US2] Create Lab 05-01 (guided, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-01.md (Implement PID controller)
 - [x] T061 [P] [US2] Create Lab 05-02 (intermediate, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-02.md (Computed torque control)
 - [x] T062 [P] [US2] Create Lab 05-03 (challenge, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-03.md (Adaptive control for perturbations)
-- [ ] T063 [P] [US2] Create Lab 06-01 (guided, simulation) at textbook/modules/06-motion-planning/labs/lab-06-01.md (RRT path planning)
+- [x] T063 [P] [US2] Create Lab 06-01 (guided, simulation) at textbook/modules/06-motion-planning/labs/lab-06-01.md (RRT path planning)
 - [ ] T064 [P] [US2] Create Lab 06-02 (intermediate, simulation) at textbook/modules/06-motion-planning/labs/lab-06-02.md (A* with heuristics)
 - [ ] T065 [P] [US2] Create Lab 06-03 (challenge, simulation) at textbook/modules/06-motion-planning/labs/lab-06-03.md (Trajectory optimization)
 - [ ] T066 [P] [US2] Create Lab 07-01 (guided, simulation) at textbook/modules/07-manipulation/labs/lab-07-01.md (Basic grasping)
@@ -192,7 +192,7 @@
 - [x] T105 [P] [US2] Write ethics content for Module 02 at textbook/modules/02-rigid-body-dynamics/ethics.md (Safety margins, physical harm prevention)
 - [x] T106 [P] [US2] Write ethics content for Module 03 at textbook/modules/03-kinematics-fundamentals/ethics.md (Workspace safety, collision avoidance)
 - [x] T107 [P] [US2] Write ethics content for Module 04 at textbook/modules/04-sensors-perception/ethics.md (Privacy, surveillance, data ethics)
-- [ ] T108 [P] [US2] Write ethics content for Module 05 at textbook/modules/05-dynamics-control/ethics.md (Control failure responsibility, conservative tuning)
+- [x] T108 [P] [US2] Write ethics content for Module 05 at textbook/modules/05-dynamics-control/ethics.md (Control failure responsibility, conservative tuning)
 - [ ] T109 [P] [US2] Write ethics content for Module 06 at textbook/modules/06-motion-planning/ethics.md (Predictable behavior, transparency)
 - [ ] T110 [P] [US2] Write ethics content for Module 07 at textbook/modules/07-manipulation/ethics.md (Force limits, safe interaction)
 - [ ] T111 [P] [US2] Write ethics content for Module 08 at textbook/modules/08-locomotion/ethics.md (Public space navigation, accessibility)
@@ -209,7 +209,7 @@
 - [x] T119 [P] [US2] Create assessment package for Module 02 at textbook/modules/02-rigid-body-dynamics/assessment.md
 - [x] T120 [P] [US2] Create assessment package for Module 03 at textbook/modules/03-kinematics-fundamentals/assessment.md
 - [x] T121 [P] [US2] Create assessment package for Module 04 at textbook/modules/04-sensors-perception/assessment.md
-- [ ] T122 [P] [US2] Create assessment package for Module 05 at textbook/modules/05-dynamics-control/assessment.md
+- [x] T122 [P] [US2] Create assessment package for Module 05 at textbook/modules/05-dynamics-control/assessment.md
 - [ ] T123 [P] [US2] Create assessment package for Module 06 at textbook/modules/06-motion-planning/assessment.md
 - [ ] T124 [P] [US2] Create assessment package for Module 07 at textbook/modules/07-manipulation/assessment.md
 - [ ] T125 [P] [US2] Create assessment package for Module 08 at textbook/modules/08-locomotion/assessment.md
