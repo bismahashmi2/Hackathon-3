@@ -1,0 +1,77 @@
+# MuJoCo Simulation Configuration
+# Module 01: Introduction to Physical AI
+
+id: sim-01-intro
+platform: mujoco
+robot_model: humanoid/humanoid.xml
+environment: default
+
+# Physics Settings
+physics_settings:
+  timestep: 0.002          # 2ms timestep (500 Hz)
+  gravity: [0, 0, -9.81]   # Earth gravity
+  solver_iterations: 50     # Constraint solver iterations
+  contact_model: elliptic   # Contact model type
+
+# Visualization Settings
+visualization:
+  camera_position: [3.0, 3.0, 2.0]
+  camera_lookat: [0, 0, 1.0]
+  render_mode: window       # window | headless | offscreen
+  record_video: false
+  frame_rate: 60
+
+# Recording Settings (optional)
+recording:
+  format: mp4
+  fps: 30
+  resolution: [1920, 1080]
+  output_dir: "recordings/module-01/"
+
+# Entry Points
+launch_script: "scripts/launch_sim_01.py"
+notebook: "notebooks/01-introduction-physical-ai.ipynb"
+docker_image: "physicalai-textbook/mujoco:3.0"
+
+# Module-Specific Settings
+module_config:
+  # Initial scenarios for this module
+  scenarios:
+    - name: "free_fall"
+      description: "Humanoid falls under gravity"
+      initial_qpos: null  # Use default
+      duration: 5.0
+
+    - name: "simple_stand"
+      description: "Attempt to maintain standing pose"
+      initial_qpos: null
+      controller: "proportional"
+      duration: 10.0
+
+    - name: "exploration"
+      description: "Interactive model exploration"
+      initial_qpos: null
+      interactive: true
+
+  # Lab exercise mappings
+  labs:
+    - lab_id: "lab-01-01"
+      scenario: "free_fall"
+      checkpoints:
+        - "verify_installation"
+        - "load_model"
+        - "run_simulation"
+
+    - lab_id: "lab-01-02"
+      scenario: "exploration"
+      checkpoints:
+        - "examine_bodies"
+        - "joint_visualization"
+        - "actuator_mapping"
+
+    - lab_id: "lab-01-03"
+      scenario: "simple_stand"
+      checkpoints:
+        - "apply_torques"
+        - "measure_response"
+        - "tune_gains"

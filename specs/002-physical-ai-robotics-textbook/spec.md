@@ -69,8 +69,8 @@ Students need to understand how Physical AI and Humanoid Robotics concepts trans
 - **FR-004**: Must include 3-5 structured lab exercises per module with varying complexity levels
 - **FR-005**: Each module must incorporate simulation environments appropriate for the concepts covered
 - **FR-006**: Must integrate ethical considerations directly into technical content rather than as separate chapters
-- **FR-007**: Real-world application case studies must represent [NEEDS CLARIFICATION: specific industry distribution - healthcare, manufacturing, disaster response, etc.]
-- **FR-008**: Textbook must specify minimum required hardware/software for labs to [NEEDS CLARIFICATION: determine appropriate accessibility level for university settings]
+- **FR-007**: Real-world application case studies must represent industry distribution as follows: Manufacturing & Logistics (35%), Healthcare & Rehabilitation (25%), Research & Academia (20%), Disaster Response & Hazardous (12%), Consumer & Service (8%)
+- **FR-008**: Textbook must specify three-tier hardware/software requirements: Tier 1 (Simulation-Only, $0): modern CPU (Intel i5/AMD Ryzen 5 or Apple M1+), 8GB RAM minimum, no GPU required - covers 100% of learning objectives; Tier 2 (Low-Cost Hardware, $500-2,000): adds physical robot platforms like TurtleBot 4 Lite; Tier 3 (Advanced, $10,000+): humanoid platforms for optional capstone projects. Cloud-first approach with Docker containers ensures universal accessibility.
 - **FR-009**: Assessment materials (quizzes, projects) must align with industry skill requirements for Physical AI engineering
 
 ### Key Entities

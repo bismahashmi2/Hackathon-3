@@ -102,9 +102,9 @@
 
 **Module Metadata and Cross-References**
 
-- [ ] T045 [US1] Add frontmatter to all module theory.md files with prerequisites, learning objectives, difficulty, week number
-- [ ] T046 [US1] Validate module prerequisites are acyclic and logically consistent across all 14 modules
-- [ ] T047 [US1] Create module progression diagram in textbook/appendices/module-progression.md
+- [x] T045 [US1] Add frontmatter to all module theory.md files with prerequisites, learning objectives, difficulty, week number
+- [x] T046 [US1] Validate module prerequisites are acyclic and logically consistent across all 14 modules
+- [x] T047 [US1] Create module progression diagram in textbook/appendices/module-progression.md
 
 **Checkpoint**: At this point, User Story 1 should be fully functional - all 14 modules exist with complete theory content and proper progression structure
 
@@ -120,24 +120,24 @@
 
 **Beginner Module Labs**
 
-- [ ] T048 [P] [US2] Create Lab 01-01 (guided, simulation) at textbook/modules/01-introduction-physical-ai/labs/lab-01-01.md (Setup MuJoCo environment)
-- [ ] T049 [P] [US2] Create Lab 01-02 (guided, simulation) at textbook/modules/01-introduction-physical-ai/labs/lab-01-02.md (Explore humanoid model)
-- [ ] T050 [P] [US2] Create Lab 01-03 (intermediate, simulation) at textbook/modules/01-introduction-physical-ai/labs/lab-01-03.md (Basic actuation)
-- [ ] T051 [P] [US2] Create Lab 02-01 (guided, simulation) at textbook/modules/02-rigid-body-dynamics/labs/lab-02-01.md (Compute rigid body forces)
-- [ ] T052 [P] [US2] Create Lab 02-02 (intermediate, simulation) at textbook/modules/02-rigid-body-dynamics/labs/lab-02-02.md (Simulate free fall)
-- [ ] T053 [P] [US2] Create Lab 02-03 (intermediate, simulation) at textbook/modules/02-rigid-body-dynamics/labs/lab-02-03.md (Torque-motion relationship)
-- [ ] T054 [P] [US2] Create Lab 03-01 (guided, simulation) at textbook/modules/03-kinematics-fundamentals/labs/lab-03-01.md (Forward kinematics 2-DOF arm)
-- [ ] T055 [P] [US2] Create Lab 03-02 (intermediate, simulation) at textbook/modules/03-kinematics-fundamentals/labs/lab-03-02.md (Inverse kinematics solver)
-- [ ] T056 [P] [US2] Create Lab 03-03 (challenge, simulation) at textbook/modules/03-kinematics-fundamentals/labs/lab-03-03.md (Full humanoid FK/IK)
-- [ ] T057 [P] [US2] Create Lab 04-01 (guided, simulation) at textbook/modules/04-sensors-perception/labs/lab-04-01.md (Read IMU data)
-- [ ] T058 [P] [US2] Create Lab 04-02 (intermediate, simulation) at textbook/modules/04-sensors-perception/labs/lab-04-02.md (Camera image processing)
-- [ ] T059 [P] [US2] Create Lab 04-03 (intermediate, simulation) at textbook/modules/04-sensors-perception/labs/lab-04-03.md (Sensor fusion Kalman filter)
+- [x] T048 [P] [US2] Create Lab 01-01 (guided, simulation) at textbook/modules/01-introduction-physical-ai/labs/lab-01-01.md (Setup MuJoCo environment)
+- [x] T049 [P] [US2] Create Lab 01-02 (guided, simulation) at textbook/modules/01-introduction-physical-ai/labs/lab-01-02.md (Explore humanoid model)
+- [x] T050 [P] [US2] Create Lab 01-03 (intermediate, simulation) at textbook/modules/01-introduction-physical-ai/labs/lab-01-03.md (Basic actuation)
+- [x] T051 [P] [US2] Create Lab 02-01 (guided, simulation) at textbook/modules/02-rigid-body-dynamics/labs/lab-02-01.md (Compute rigid body forces)
+- [x] T052 [P] [US2] Create Lab 02-02 (intermediate, simulation) at textbook/modules/02-rigid-body-dynamics/labs/lab-02-02.md (Simulate free fall)
+- [x] T053 [P] [US2] Create Lab 02-03 (intermediate, simulation) at textbook/modules/02-rigid-body-dynamics/labs/lab-02-03.md (Torque-motion relationship)
+- [x] T054 [P] [US2] Create Lab 03-01 (guided, simulation) at textbook/modules/03-kinematics-fundamentals/labs/lab-03-01.md (Forward kinematics 2-DOF arm)
+- [x] T055 [P] [US2] Create Lab 03-02 (intermediate, simulation) at textbook/modules/03-kinematics-fundamentals/labs/lab-03-02.md (Inverse kinematics solver)
+- [x] T056 [P] [US2] Create Lab 03-03 (challenge, simulation) at textbook/modules/03-kinematics-fundamentals/labs/lab-03-03.md (Full humanoid FK/IK)
+- [x] T057 [P] [US2] Create Lab 04-01 (guided, simulation) at textbook/modules/04-sensors-perception/labs/lab-04-01.md (Read IMU data)
+- [x] T058 [P] [US2] Create Lab 04-02 (intermediate, simulation) at textbook/modules/04-sensors-perception/labs/lab-04-02.md (Camera image processing)
+- [x] T059 [P] [US2] Create Lab 04-03 (intermediate, simulation) at textbook/modules/04-sensors-perception/labs/lab-04-03.md (Sensor fusion Kalman filter)
 
 **Intermediate Module Labs**
 
-- [ ] T060 [P] [US2] Create Lab 05-01 (guided, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-01.md (Implement PID controller)
-- [ ] T061 [P] [US2] Create Lab 05-02 (intermediate, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-02.md (Computed torque control)
-- [ ] T062 [P] [US2] Create Lab 05-03 (challenge, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-03.md (Adaptive control for perturbations)
+- [x] T060 [P] [US2] Create Lab 05-01 (guided, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-01.md (Implement PID controller)
+- [x] T061 [P] [US2] Create Lab 05-02 (intermediate, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-02.md (Computed torque control)
+- [x] T062 [P] [US2] Create Lab 05-03 (challenge, simulation) at textbook/modules/05-dynamics-control/labs/lab-05-03.md (Adaptive control for perturbations)
 - [ ] T063 [P] [US2] Create Lab 06-01 (guided, simulation) at textbook/modules/06-motion-planning/labs/lab-06-01.md (RRT path planning)
 - [ ] T064 [P] [US2] Create Lab 06-02 (intermediate, simulation) at textbook/modules/06-motion-planning/labs/lab-06-02.md (A* with heuristics)
 - [ ] T065 [P] [US2] Create Lab 06-03 (challenge, simulation) at textbook/modules/06-motion-planning/labs/lab-06-03.md (Trajectory optimization)
@@ -171,11 +171,11 @@
 
 ### Simulation Configurations
 
-- [ ] T090 [P] [US2] Create MuJoCo simulation config for Module 01 at textbook/modules/01-introduction-physical-ai/simulations/mujoco-config.yaml
-- [ ] T091 [P] [US2] Create MuJoCo simulation config for Module 02 at textbook/modules/02-rigid-body-dynamics/simulations/mujoco-config.yaml
-- [ ] T092 [P] [US2] Create MuJoCo simulation config for Module 03 at textbook/modules/03-kinematics-fundamentals/simulations/mujoco-config.yaml
-- [ ] T093 [P] [US2] Create MuJoCo simulation config for Module 04 at textbook/modules/04-sensors-perception/simulations/mujoco-config.yaml
-- [ ] T094 [P] [US2] Create MuJoCo simulation config for Module 05 at textbook/modules/05-dynamics-control/simulations/mujoco-config.yaml
+- [x] T090 [P] [US2] Create MuJoCo simulation config for Module 01 at textbook/modules/01-introduction-physical-ai/simulations/mujoco-config.yaml
+- [x] T091 [P] [US2] Create MuJoCo simulation config for Module 02 at textbook/modules/02-rigid-body-dynamics/simulations/mujoco-config.yaml
+- [x] T092 [P] [US2] Create MuJoCo simulation config for Module 03 at textbook/modules/03-kinematics-fundamentals/simulations/mujoco-config.yaml
+- [x] T093 [P] [US2] Create MuJoCo simulation config for Module 04 at textbook/modules/04-sensors-perception/simulations/mujoco-config.yaml
+- [x] T094 [P] [US2] Create MuJoCo simulation config for Module 05 at textbook/modules/05-dynamics-control/simulations/mujoco-config.yaml
 - [ ] T095 [P] [US2] Create MuJoCo simulation config for Module 06 at textbook/modules/06-motion-planning/simulations/mujoco-config.yaml
 - [ ] T096 [P] [US2] Create MuJoCo simulation config for Module 07 at textbook/modules/07-manipulation/simulations/mujoco-config.yaml
 - [ ] T097 [P] [US2] Create MuJoCo simulation config for Module 08 at textbook/modules/08-locomotion/simulations/mujoco-config.yaml
@@ -188,10 +188,10 @@
 
 ### Ethics Sections
 
-- [ ] T104 [P] [US2] Write ethics content for Module 01 at textbook/modules/01-introduction-physical-ai/ethics.md (AI ethics foundations, responsible development)
-- [ ] T105 [P] [US2] Write ethics content for Module 02 at textbook/modules/02-rigid-body-dynamics/ethics.md (Safety margins, physical harm prevention)
-- [ ] T106 [P] [US2] Write ethics content for Module 03 at textbook/modules/03-kinematics-fundamentals/ethics.md (Workspace safety, collision avoidance)
-- [ ] T107 [P] [US2] Write ethics content for Module 04 at textbook/modules/04-sensors-perception/ethics.md (Privacy, surveillance, data ethics)
+- [x] T104 [P] [US2] Write ethics content for Module 01 at textbook/modules/01-introduction-physical-ai/ethics.md (AI ethics foundations, responsible development)
+- [x] T105 [P] [US2] Write ethics content for Module 02 at textbook/modules/02-rigid-body-dynamics/ethics.md (Safety margins, physical harm prevention)
+- [x] T106 [P] [US2] Write ethics content for Module 03 at textbook/modules/03-kinematics-fundamentals/ethics.md (Workspace safety, collision avoidance)
+- [x] T107 [P] [US2] Write ethics content for Module 04 at textbook/modules/04-sensors-perception/ethics.md (Privacy, surveillance, data ethics)
 - [ ] T108 [P] [US2] Write ethics content for Module 05 at textbook/modules/05-dynamics-control/ethics.md (Control failure responsibility, conservative tuning)
 - [ ] T109 [P] [US2] Write ethics content for Module 06 at textbook/modules/06-motion-planning/ethics.md (Predictable behavior, transparency)
 - [ ] T110 [P] [US2] Write ethics content for Module 07 at textbook/modules/07-manipulation/ethics.md (Force limits, safe interaction)
@@ -205,10 +205,10 @@
 
 ### Assessment Packages
 
-- [ ] T118 [P] [US2] Create assessment package for Module 01 at textbook/modules/01-introduction-physical-ai/assessment.md (quiz, rubrics, project)
-- [ ] T119 [P] [US2] Create assessment package for Module 02 at textbook/modules/02-rigid-body-dynamics/assessment.md
-- [ ] T120 [P] [US2] Create assessment package for Module 03 at textbook/modules/03-kinematics-fundamentals/assessment.md
-- [ ] T121 [P] [US2] Create assessment package for Module 04 at textbook/modules/04-sensors-perception/assessment.md
+- [x] T118 [P] [US2] Create assessment package for Module 01 at textbook/modules/01-introduction-physical-ai/assessment.md (quiz, rubrics, project)
+- [x] T119 [P] [US2] Create assessment package for Module 02 at textbook/modules/02-rigid-body-dynamics/assessment.md
+- [x] T120 [P] [US2] Create assessment package for Module 03 at textbook/modules/03-kinematics-fundamentals/assessment.md
+- [x] T121 [P] [US2] Create assessment package for Module 04 at textbook/modules/04-sensors-perception/assessment.md
 - [ ] T122 [P] [US2] Create assessment package for Module 05 at textbook/modules/05-dynamics-control/assessment.md
 - [ ] T123 [P] [US2] Create assessment package for Module 06 at textbook/modules/06-motion-planning/assessment.md
 - [ ] T124 [P] [US2] Create assessment package for Module 07 at textbook/modules/07-manipulation/assessment.md
@@ -222,7 +222,7 @@
 
 ### Code Examples with Tests
 
-- [ ] T132 [P] [US2] Create Python code examples for Module 01 in textbook/assets/code-examples/01/ (basic MuJoCo usage)
+- [x] T132 [P] [US2] Create Python code examples for Module 01 in textbook/assets/code-examples/01/ (basic MuJoCo usage)
 - [ ] T133 [P] [US2] Create Python code examples for Module 02 in textbook/assets/code-examples/02/ (dynamics calculations)
 - [ ] T134 [P] [US2] Create Python code examples for Module 03 in textbook/assets/code-examples/03/ (FK/IK solvers)
 - [ ] T135 [P] [US2] Create Python code examples for Module 04 in textbook/assets/code-examples/04/ (sensor processing)
@@ -313,8 +313,8 @@
 - [ ] T181 [P] Create glossary at textbook/appendices/glossary.md (key terms from all modules)
 - [ ] T182 [P] Create bibliography at textbook/appendices/bibliography.md (academic references)
 - [ ] T183 [P] Create index of learning objectives at textbook/appendices/learning-objectives-index.md
-- [ ] T184 [P] Generate asset diagrams for module progression at textbook/assets/diagrams/module-progression.svg
-- [ ] T185 [P] Generate asset diagrams for prerequisite graph at textbook/assets/diagrams/prerequisites-graph.svg
+- [x] T184 [P] Generate asset diagrams for module progression at textbook/assets/diagrams/module-progression.svg
+- [x] T185 [P] Generate asset diagrams for prerequisite graph at textbook/assets/diagrams/prerequisites-graph.svg
 - [ ] T186 Create build script for PDF generation at scripts/build-pdf.py
 - [ ] T187 [P] Create build script for HTML generation at scripts/build-html.py
 - [ ] T188 [P] Create build script for EPUB generation at scripts/build-epub.py

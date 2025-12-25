@@ -1,0 +1,209 @@
+# MuJoCo Simulation Configuration for Module 05: Dynamics and Control
+# This configuration defines the simulation environment for control labs
+
+id: mod05-dynamics-control
+platform: mujoco
+version: "3.0+"
+
+# Primary robot model
+robot_model:
+  path: textbook/assets/robot-models/mujoco/2dof-arm.xml
+  description: Two-link planar arm for control studies
+
+# Alternate models
+alternate_models:
+  - id: 3dof-arm
+    path: textbook/assets/robot-models/mujoco/3dof-arm.xml
+    description: Three-link arm for project
+    labs: [project]
+  - id: 2dof-arm-heavy
+    path: textbook/assets/robot-models/mujoco/2dof-arm-heavy.xml
+    description: Perturbed mass for adaptive control
+    labs: [lab-05-03]
+
+# Environment configuration
+environment:
+  scene: control_testbed
+  ground_plane: true
+  gravity: [0, 0, -9.81]
+  target_markers:
+    - name: target_1
+      position: [0.5, 0.3, 0.0]
+      color: [0, 1, 0, 0.5]
+    - name: target_2
+      position: [0.3, 0.5, 0.0]
+      color: [1, 0, 0, 0.5]
+
+# Physics settings
+physics:
+  timestep: 0.001  # 1 kHz control rate
+  gravity: [0, 0, -9.81]
+  solver_iterations: 100
+  integrator: implicitfast
+
+# Actuator configuration
+actuators:
+  joint_0:
+    type: motor
+    gear: 1.0
+    ctrlrange: [-50, 50]  # Nm
+    damping: 0.5
+  joint_1:
+    type: motor
+    gear: 1.0
+    ctrlrange: [-30, 30]  # Nm
+    damping: 0.3
+
+# Sensor configurations
+sensors:
+  position:
+    - name: joint_0_pos
+      type: jointpos
+      joint: joint_0
+      noise_std: 0.0001  # rad
+    - name: joint_1_pos
+      type: jointpos
+      joint: joint_1
+      noise_std: 0.0001
+
+  velocity:
+    - name: joint_0_vel
+      type: jointvel
+      joint: joint_0
+      noise_std: 0.001  # rad/s
+    - name: joint_1_vel
+      type: jointvel
+      joint: joint_1
+      noise_std: 0.001
+
+  torque:
+    - name: joint_0_torque
+      type: torque
+      site: joint_0_site
+    - name: joint_1_torque
+      type: torque
+      site: joint_1_site
+
+# Visualization settings
+visualization:
+  render_mode: window
+  camera:
+    position: [0, -2, 1]
+    lookat: [0.3, 0, 0]
+  show_contact_forces: false
+  show_joint_axes: true
+  trace_end_effector: true
+
+# Lab-specific configurations
+lab_configs:
+  lab-05-01:
+    description: "PID Control Implementation"
+    duration: 5.0
+    initial_state:
+      qpos: [0, 0]
+      qvel: [0, 0]
+    targets:
+      - joint_positions: [0.785, -0.524]  # 45, -30 deg
+        settle_time: 2.0
+      - joint_positions: [-0.524, 0.785]  # -30, 45 deg
+        settle_time: 2.0
+    success_criteria:
+      max_error_deg: 1.0
+      settling_time_s: 2.0
+
+  lab-05-02:
+    description: "Computed Torque Control"
+    duration: 5.0
+    initial_state:
+      qpos: [0, 0]
+      qvel: [0, 0]
+    trajectory:
+      type: sinusoidal
+      amplitudes: [0.6, 0.4]  # rad
+      frequencies: [0.3, 0.5]  # Hz
+      phase_offsets: [0, 0.5]  # rad
+    success_criteria:
+      rms_error_deg: 2.0
+      max_error_deg: 5.0
+
+  lab-05-03:
+    description: "Adaptive Control"
+    duration: 15.0
+    model_perturbation:
+      mass_scale: 1.5  # 50% heavier
+      inertia_scale: 1.5
+    initial_state:
+      qpos: [0, 0]
+      qvel: [0, 0]
+    adaptation:
+      learning_rate: 0.3
+      parameter_bounds: [0.5, 3.0]
+    success_criteria:
+      final_error_deg: 2.0
+      parameter_convergence: 0.9  # Within 90% of true value
+
+# Control performance metrics
+metrics:
+  step_response:
+    - rise_time_10_90
+    - settling_time_2_percent
+    - overshoot_percent
+    - steady_state_error
+  trajectory_tracking:
+    - rms_error
+    - max_error
+    - mean_tracking_lag
+  energy:
+    - total_torque_squared
+    - peak_torque
+
+# Safety limits
+safety:
+  max_joint_velocity: 5.0  # rad/s
+  max_joint_acceleration: 50.0  # rad/s²
+  max_torque: [50, 30]  # Nm per joint
+  workspace_bounds:
+    x: [-1.0, 1.0]
+    y: [-1.0, 1.0]
+    z: [-0.5, 1.0]
+
+# Docker/container setup
+docker:
+  image: mujoco-control:mod05
+  build_context: docker/ros2-humble/
+  volumes:
+    - ./textbook:/textbook:ro
+    - ./data:/data:rw
+
+# Testing configuration
+testing:
+  validate_controllers: true
+  test_sequences:
+    - name: step_response
+      target: [0.785, -0.524]
+      duration: 3.0
+    - name: tracking
+      trajectory: sinusoidal
+      duration: 5.0
+  expected_performance:
+    pid_settling_time: 2.0
+    ctc_rms_error: 2.0
+
+# Model parameters (for adaptive control ground truth)
+true_parameters:
+  link_1:
+    mass: 2.0  # kg
+    length: 0.5  # m
+    com_offset: 0.25  # m from joint
+    inertia: 0.042  # kg*m²
+  link_2:
+    mass: 1.5  # kg
+    length: 0.4  # m
+    com_offset: 0.2  # m from joint
+    inertia: 0.02  # kg*m²
+
+# References
+references:
+  - textbook/modules/05-dynamics-control/theory.md
+  - textbook/modules/05-dynamics-control/labs/
+  - textbook/assets/code-examples/05/
