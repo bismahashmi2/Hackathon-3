@@ -1,0 +1,62 @@
+# Gazebo Simulation Configuration for Module 10: Sim-to-Real Transfer
+
+id: mod10-sim-to-real
+platform: gazebo
+version: "Fortress (6.x)"
+
+# World with domain randomization support
+world:
+  name: sim_to_real_world
+  physics:
+    engine: ode
+    max_step_size: 0.001
+    real_time_factor: 1.0
+    randomization_enabled: true
+
+# Robot model: TurtleBot 4
+robot_model:
+  name: turtlebot4
+  path: models/turtlebot4/model.sdf
+
+# Domain randomization parameters
+randomization:
+  physics:
+    mass: {min: 0.8, max: 1.2, distribution: uniform}
+    friction: {min: 0.5, max: 1.5, distribution: loguniform}
+    damping: {min: 0.7, max: 1.3, distribution: uniform}
+  
+  visual:
+    lighting: {min: 0.5, max: 1.5}
+    texture_randomization: true
+    color_jitter: 0.2
+  
+  sensors:
+    lidar_noise: {std: 0.01}
+    imu_noise: {gyro: 0.01, accel: 0.1}
+    odometry_drift: 0.02
+
+# Test environments
+test_scenarios:
+  - name: flat_corridor
+    description: "Ideal conditions"
+    randomization_level: 0.0
+  
+  - name: realistic_indoor
+    description: "Normal indoor environment"
+    randomization_level: 0.5
+  
+  - name: challenging
+    description: "Maximum randomization"
+    randomization_level: 1.0
+
+# System identification support
+identification:
+  step_response_enabled: true
+  chirp_signal_enabled: true
+  data_logging: true
+
+# Validation metrics
+metrics:
+  - sim_to_real_gap
+  - transfer_success_rate
+  - parameter_estimation_error

@@ -142,32 +142,32 @@
 - [x] T064 [P] [US2] Create Lab 06-02 (intermediate, simulation) at textbook/modules/06-motion-planning/labs/lab-06-02.md (A* with heuristics)
 - [x] T065 [P] [US2] Create Lab 06-03 (challenge, simulation) at textbook/modules/06-motion-planning/labs/lab-06-03.md (Trajectory optimization)
 - [x] T066 [P] [US2] Create Lab 07-01 (guided, simulation) at textbook/modules/07-manipulation/labs/lab-07-01.md (Basic grasping)
-- [ ] T067 [P] [US2] Create Lab 07-02 (intermediate, simulation) at textbook/modules/07-manipulation/labs/lab-07-02.md (Force control)
-- [ ] T068 [P] [US2] Create Lab 07-03 (challenge, simulation) at textbook/modules/07-manipulation/labs/lab-07-03.md (Dexterous multi-finger grasp)
-- [ ] T069 [P] [US2] Create Lab 08-01 (guided, simulation) at textbook/modules/08-locomotion/labs/lab-08-01.md (ZMP calculation)
-- [ ] T070 [P] [US2] Create Lab 08-02 (intermediate, simulation) at textbook/modules/08-locomotion/labs/lab-08-02.md (Bipedal walking controller)
-- [ ] T071 [P] [US2] Create Lab 08-03 (challenge, simulation) at textbook/modules/08-locomotion/labs/lab-08-03.md (Whole-body balance)
-- [ ] T072 [P] [US2] Create Lab 09-01 (guided, simulation) at textbook/modules/09-ros2-integration/labs/lab-09-01.md (ROS2 nodes and topics)
-- [ ] T073 [P] [US2] Create Lab 09-02 (intermediate, simulation) at textbook/modules/09-ros2-integration/labs/lab-09-02.md (Service communication)
-- [ ] T074 [P] [US2] Create Lab 09-03 (intermediate, simulation) at textbook/modules/09-ros2-integration/labs/lab-09-03.md (Robot state publisher)
-- [ ] T075 [P] [US2] Create Lab 10-01 (intermediate, simulation) at textbook/modules/10-simulation-to-real/labs/lab-10-01.md (Domain randomization)
-- [ ] T076 [P] [US2] Create Lab 10-02 (intermediate, low_cost_hardware) at textbook/modules/10-simulation-to-real/labs/lab-10-02.md (Deploy to TurtleBot 4)
-- [ ] T077 [P] [US2] Create Lab 10-03 (challenge, low_cost_hardware) at textbook/modules/10-simulation-to-real/labs/lab-10-03.md (Sim-to-real transfer validation)
+- [x] T067 [P] [US2] Create Lab 07-02 (intermediate, simulation) at textbook/modules/07-manipulation/labs/lab-07-02.md (Force control)
+- [x] T068 [P] [US2] Create Lab 07-03 (challenge, simulation) at textbook/modules/07-manipulation/labs/lab-07-03.md (Dexterous multi-finger grasp)
+- [x] T069 [P] [US2] Create Lab 08-01 (guided, simulation) at textbook/modules/08-locomotion/labs/lab-08-01.md (ZMP calculation)
+- [x] T070 [P] [US2] Create Lab 08-02 (intermediate, simulation) at textbook/modules/08-locomotion/labs/lab-08-02.md (Bipedal walking controller)
+- [x] T071 [P] [US2] Create Lab 08-03 (challenge, simulation) at textbook/modules/08-locomotion/labs/lab-08-03.md (Whole-body balance)
+- [x] T072 [P] [US2] Create Lab 09-01 (guided, simulation) at textbook/modules/09-ros2-integration/labs/lab-09-01.md (ROS2 nodes and topics)
+- [x] T073 [P] [US2] Create Lab 09-02 (intermediate, simulation) at textbook/modules/09-ros2-integration/labs/lab-09-02.md (Service communication)
+- [x] T074 [P] [US2] Create Lab 09-03 (intermediate, simulation) at textbook/modules/09-ros2-integration/labs/lab-09-03.md (Robot state publisher)
+- [x] T075 [P] [US2] Create Lab 10-01 (intermediate, simulation) at textbook/modules/10-simulation-to-real/labs/lab-10-01.md (Domain randomization)
+- [x] T076 [P] [US2] Create Lab 10-02 (intermediate, low_cost_hardware) at textbook/modules/10-simulation-to-real/labs/lab-10-02.md (Deploy to TurtleBot 4)
+- [x] T077 [P] [US2] Create Lab 10-03 (challenge, low_cost_hardware) at textbook/modules/10-simulation-to-real/labs/lab-10-03.md (Sim-to-real transfer validation)
 
 **Advanced Module Labs**
 
-- [ ] T078 [P] [US2] Create Lab 11-01 (intermediate, simulation) at textbook/modules/11-learning-based-control/labs/lab-11-01.md (RL policy training)
-- [ ] T079 [P] [US2] Create Lab 11-02 (challenge, simulation) at textbook/modules/11-learning-based-control/labs/lab-11-02.md (Imitation learning from demos)
-- [ ] T080 [P] [US2] Create Lab 11-03 (challenge, simulation) at textbook/modules/11-learning-based-control/labs/lab-11-03.md (Policy optimization PPO)
-- [ ] T081 [P] [US2] Create Lab 12-01 (guided, simulation) at textbook/modules/12-human-robot-interaction/labs/lab-12-01.md (Safety zones and constraints)
-- [ ] T082 [P] [US2] Create Lab 12-02 (intermediate, simulation) at textbook/modules/12-human-robot-interaction/labs/lab-12-02.md (Collaborative task planning)
-- [ ] T083 [P] [US2] Create Lab 12-03 (challenge, advanced_hardware) at textbook/modules/12-human-robot-interaction/labs/lab-12-03.md (Natural language interface)
-- [ ] T084 [P] [US2] Create Lab 13-01 (challenge, simulation) at textbook/modules/13-full-body-autonomy/labs/lab-13-01.md (Integrated perception-planning-control)
-- [ ] T085 [P] [US2] Create Lab 13-02 (challenge, simulation) at textbook/modules/13-full-body-autonomy/labs/lab-13-02.md (Decision making under uncertainty)
-- [ ] T086 [P] [US2] Create Lab 13-03 (challenge, advanced_hardware) at textbook/modules/13-full-body-autonomy/labs/lab-13-03.md (Full autonomy demo)
-- [ ] T087 [P] [US2] Create Lab 14-01 (challenge, simulation) at textbook/modules/14-capstone-integration/labs/lab-14-01.md (Design capstone project)
-- [ ] T088 [P] [US2] Create Lab 14-02 (challenge, simulation) at textbook/modules/14-capstone-integration/labs/lab-14-02.md (Implement and test system)
-- [ ] T089 [P] [US2] Create Lab 14-03 (challenge, advanced_hardware) at textbook/modules/14-capstone-integration/labs/lab-14-03.md (Deploy and demonstrate)
+- [x] T078 [P] [US2] Create Lab 11-01 (intermediate, simulation) at textbook/modules/11-learning-based-control/labs/lab-11-01.md (RL policy training)
+- [x] T079 [P] [US2] Create Lab 11-02 (challenge, simulation) at textbook/modules/11-learning-based-control/labs/lab-11-02.md (Imitation learning from demos)
+- [x] T080 [P] [US2] Create Lab 11-03 (challenge, simulation) at textbook/modules/11-learning-based-control/labs/lab-11-03.md (Policy optimization PPO)
+- [x] T081 [P] [US2] Create Lab 12-01 (guided, simulation) at textbook/modules/12-human-robot-interaction/labs/lab-12-01.md (Safety zones and constraints)
+- [x] T082 [P] [US2] Create Lab 12-02 (intermediate, simulation) at textbook/modules/12-human-robot-interaction/labs/lab-12-02.md (Collaborative task planning)
+- [x] T083 [P] [US2] Create Lab 12-03 (challenge, advanced_hardware) at textbook/modules/12-human-robot-interaction/labs/lab-12-03.md (Natural language interface)
+- [x] T084 [P] [US2] Create Lab 13-01 (challenge, simulation) at textbook/modules/13-full-body-autonomy/labs/lab-13-01.md (Integrated perception-planning-control)
+- [x] T085 [P] [US2] Create Lab 13-02 (challenge, simulation) at textbook/modules/13-full-body-autonomy/labs/lab-13-02.md (Decision making under uncertainty)
+- [x] T086 [P] [US2] Create Lab 13-03 (challenge, advanced_hardware) at textbook/modules/13-full-body-autonomy/labs/lab-13-03.md (Full autonomy demo)
+- [x] T087 [P] [US2] Create Lab 14-01 (challenge, simulation) at textbook/modules/14-capstone-integration/labs/lab-14-01.md (Design capstone project)
+- [x] T088 [P] [US2] Create Lab 14-02 (challenge, simulation) at textbook/modules/14-capstone-integration/labs/lab-14-02.md (Implement and test system)
+- [x] T089 [P] [US2] Create Lab 14-03 (challenge, advanced_hardware) at textbook/modules/14-capstone-integration/labs/lab-14-03.md (Deploy and demonstrate)
 
 ### Simulation Configurations
 
@@ -177,14 +177,14 @@
 - [x] T093 [P] [US2] Create MuJoCo simulation config for Module 04 at textbook/modules/04-sensors-perception/simulations/mujoco-config.yaml
 - [x] T094 [P] [US2] Create MuJoCo simulation config for Module 05 at textbook/modules/05-dynamics-control/simulations/mujoco-config.yaml
 - [x] T095 [P] [US2] Create MuJoCo simulation config for Module 06 at textbook/modules/06-motion-planning/simulations/mujoco-config.yaml
-- [ ] T096 [P] [US2] Create MuJoCo simulation config for Module 07 at textbook/modules/07-manipulation/simulations/mujoco-config.yaml
-- [ ] T097 [P] [US2] Create MuJoCo simulation config for Module 08 at textbook/modules/08-locomotion/simulations/mujoco-config.yaml
-- [ ] T098 [P] [US2] Create Gazebo simulation config for Module 09 at textbook/modules/09-ros2-integration/simulations/gazebo-config.yaml
-- [ ] T099 [P] [US2] Create Gazebo simulation config for Module 10 at textbook/modules/10-simulation-to-real/simulations/gazebo-config.yaml
-- [ ] T100 [P] [US2] Create MuJoCo simulation config for Module 11 at textbook/modules/11-learning-based-control/simulations/mujoco-config.yaml
-- [ ] T101 [P] [US2] Create Gazebo simulation config for Module 12 at textbook/modules/12-human-robot-interaction/simulations/gazebo-config.yaml
-- [ ] T102 [P] [US2] Create MuJoCo simulation config for Module 13 at textbook/modules/13-full-body-autonomy/simulations/mujoco-config.yaml
-- [ ] T103 [P] [US2] Create Gazebo simulation config for Module 14 at textbook/modules/14-capstone-integration/simulations/gazebo-config.yaml
+- [x] T096 [P] [US2] Create MuJoCo simulation config for Module 07 at textbook/modules/07-manipulation/simulations/mujoco-config.yaml
+- [x] T097 [P] [US2] Create MuJoCo simulation config for Module 08 at textbook/modules/08-locomotion/simulations/mujoco-config.yaml
+- [x] T098 [P] [US2] Create Gazebo simulation config for Module 09 at textbook/modules/09-ros2-integration/simulations/gazebo-config.yaml
+- [x] T099 [P] [US2] Create Gazebo simulation config for Module 10 at textbook/modules/10-simulation-to-real/simulations/gazebo-config.yaml
+- [x] T100 [P] [US2] Create MuJoCo simulation config for Module 11 at textbook/modules/11-learning-based-control/simulations/mujoco-config.yaml
+- [x] T101 [P] [US2] Create Gazebo simulation config for Module 12 at textbook/modules/12-human-robot-interaction/simulations/gazebo-config.yaml
+- [x] T102 [P] [US2] Create MuJoCo simulation config for Module 13 at textbook/modules/13-full-body-autonomy/simulations/mujoco-config.yaml
+- [x] T103 [P] [US2] Create Gazebo simulation config for Module 14 at textbook/modules/14-capstone-integration/simulations/gazebo-config.yaml
 
 ### Ethics Sections
 
@@ -194,14 +194,14 @@
 - [x] T107 [P] [US2] Write ethics content for Module 04 at textbook/modules/04-sensors-perception/ethics.md (Privacy, surveillance, data ethics)
 - [x] T108 [P] [US2] Write ethics content for Module 05 at textbook/modules/05-dynamics-control/ethics.md (Control failure responsibility, conservative tuning)
 - [x] T109 [P] [US2] Write ethics content for Module 06 at textbook/modules/06-motion-planning/ethics.md (Predictable behavior, transparency)
-- [ ] T110 [P] [US2] Write ethics content for Module 07 at textbook/modules/07-manipulation/ethics.md (Force limits, safe interaction)
-- [ ] T111 [P] [US2] Write ethics content for Module 08 at textbook/modules/08-locomotion/ethics.md (Public space navigation, accessibility)
-- [ ] T112 [P] [US2] Write ethics content for Module 09 at textbook/modules/09-ros2-integration/ethics.md (Software quality, testing standards)
-- [ ] T113 [P] [US2] Write ethics content for Module 10 at textbook/modules/10-simulation-to-real/ethics.md (Validation requirements, deployment readiness)
-- [ ] T114 [P] [US2] Write ethics content for Module 11 at textbook/modules/11-learning-based-control/ethics.md (Black box systems, interpretability, alignment)
-- [ ] T115 [P] [US2] Write ethics content for Module 12 at textbook/modules/12-human-robot-interaction/ethics.md (Autonomy, dignity, informed consent)
-- [ ] T116 [P] [US2] Write ethics content for Module 13 at textbook/modules/13-full-body-autonomy/ethics.md (Autonomous decision ethics, accountability)
-- [ ] T117 [P] [US2] Write ethics content for Module 14 at textbook/modules/14-capstone-integration/ethics.md (Professional ethics, societal impact)
+- [x] T110 [P] [US2] Write ethics content for Module 07 at textbook/modules/07-manipulation/ethics.md (Force limits, safe interaction)
+- [x] T111 [P] [US2] Write ethics content for Module 08 at textbook/modules/08-locomotion/ethics.md (Public space navigation, accessibility)
+- [x] T112 [P] [US2] Write ethics content for Module 09 at textbook/modules/09-ros2-integration/ethics.md (Software quality, testing standards)
+- [x] T113 [P] [US2] Write ethics content for Module 10 at textbook/modules/10-simulation-to-real/ethics.md (Validation requirements, deployment readiness)
+- [x] T114 [P] [US2] Write ethics content for Module 11 at textbook/modules/11-learning-based-control/ethics.md (Black box systems, interpretability, alignment)
+- [x] T115 [P] [US2] Write ethics content for Module 12 at textbook/modules/12-human-robot-interaction/ethics.md (Autonomy, dignity, informed consent)
+- [x] T116 [P] [US2] Write ethics content for Module 13 at textbook/modules/13-full-body-autonomy/ethics.md (Autonomous decision ethics, accountability)
+- [x] T117 [P] [US2] Write ethics content for Module 14 at textbook/modules/14-capstone-integration/ethics.md (Professional ethics, societal impact)
 
 ### Assessment Packages
 
