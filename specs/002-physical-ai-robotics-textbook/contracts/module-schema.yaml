@@ -1,0 +1,886 @@
+# Module Content Schema
+# Physical AI and Humanoid Robotics Textbook
+# Version: 1.0.0
+# Date: 2025-12-21
+
+openapi: 3.1.0
+info:
+  title: Physical AI Textbook Content Schema
+  description: |
+    JSON Schema definitions for validating textbook content structure.
+    Used by content validation scripts and authoring tools.
+  version: 1.0.0
+  contact:
+    name: Textbook Development Team
+
+# Note: This uses OpenAPI format for familiarity but defines content schemas,
+# not HTTP APIs. The schemas can be extracted for JSON Schema validation.
+
+components:
+  schemas:
+    # ============================================
+    # Core Module Schema
+    # ============================================
+    Module:
+      type: object
+      required:
+        - id
+        - title
+        - slug
+        - week
+        - difficulty
+        - learning_objectives
+        - theory
+        - labs
+        - ethics
+        - assessment
+      properties:
+        id:
+          type: string
+          pattern: "^[0-9]{2}$"
+          description: Two-digit module identifier (01-14)
+          examples: ["01", "07", "14"]
+        title:
+          type: string
+          minLength: 10
+          maxLength: 100
+          description: Human-readable module title
+        slug:
+          type: string
+          pattern: "^[a-z0-9-]+$"
+          description: URL-safe identifier
+        week:
+          type: integer
+          minimum: 1
+          maximum: 14
+        difficulty:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        prerequisites:
+          type: array
+          items:
+            type: string
+            pattern: "^[0-9]{2}$"
+          default: []
+        learning_objectives:
+          type: array
+          minItems: 3
+          maxItems: 5
+          items:
+            type: string
+            minLength: 20
+        estimated_hours:
+          type: integer
+          minimum: 5
+          maximum: 20
+          default: 10
+        theory:
+          $ref: '#/components/schemas/TheorySection'
+        labs:
+          type: array
+          minItems: 3
+          maxItems: 5
+          items:
+            $ref: '#/components/schemas/LabExercise'
+        simulations:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimulationConfig'
+        ethics:
+          $ref: '#/components/schemas/EthicsSection'
+        assessment:
+          $ref: '#/components/schemas/AssessmentPackage'
+        last_updated:
+          type: string
+          format: date
+        version:
+          type: string
+          pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        status:
+          type: string
+          enum: [draft, review, published]
+          default: draft
+
+    # ============================================
+    # Theory Content
+    # ============================================
+    TheorySection:
+      type: object
+      required:
+        - sections
+        - key_concepts
+      properties:
+        sections:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ContentBlock'
+        key_concepts:
+          type: array
+          minItems: 3
+          items:
+            $ref: '#/components/schemas/Concept'
+        equations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equation'
+        figures:
+          type: array
+          items:
+            $ref: '#/components/schemas/FigureRef'
+        code_examples:
+          type: array
+          items:
+            $ref: '#/components/schemas/CodeExample'
+        reading_time_minutes:
+          type: integer
+          minimum: 15
+          maximum: 120
+
+    ContentBlock:
+      type: object
+      required:
+        - id
+        - type
+        - content
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum: [text, definition, theorem, example, warning]
+        title:
+          type: string
+        content:
+          type: string
+          description: Markdown content
+
+    Concept:
+      type: object
+      required:
+        - term
+        - definition
+      properties:
+        term:
+          type: string
+        definition:
+          type: string
+        related_terms:
+          type: array
+          items:
+            type: string
+        first_introduced_in:
+          type: string
+          pattern: "^[0-9]{2}$"
+
+    Equation:
+      type: object
+      required:
+        - id
+        - latex
+        - description
+      properties:
+        id:
+          type: string
+        latex:
+          type: string
+          description: LaTeX equation string
+        description:
+          type: string
+        variables:
+          type: object
+          additionalProperties:
+            type: string
+
+    FigureRef:
+      type: object
+      required:
+        - id
+        - path
+        - caption
+      properties:
+        id:
+          type: string
+        path:
+          type: string
+          description: Relative path from assets/
+        caption:
+          type: string
+        alt_text:
+          type: string
+
+    CodeExample:
+      type: object
+      required:
+        - id
+        - language
+        - code
+      properties:
+        id:
+          type: string
+        language:
+          type: string
+          enum: [python, xml, yaml, bash]
+        code:
+          type: string
+        description:
+          type: string
+        outputs:
+          type: string
+        executable:
+          type: boolean
+          default: true
+
+    # ============================================
+    # Lab Exercise
+    # ============================================
+    LabExercise:
+      type: object
+      required:
+        - id
+        - module_id
+        - title
+        - difficulty
+        - tier
+        - objectives
+        - instructions
+        - rubric
+      properties:
+        id:
+          type: string
+          pattern: "^lab-[0-9]{2}-[0-9]{2}$"
+        module_id:
+          type: string
+          pattern: "^[0-9]{2}$"
+        title:
+          type: string
+        difficulty:
+          type: string
+          enum: [guided, intermediate, challenge]
+        tier:
+          type: string
+          enum: [simulation, low_cost_hardware, advanced_hardware]
+        duration_minutes:
+          type: integer
+          minimum: 30
+          maximum: 180
+        objectives:
+          type: array
+          minItems: 1
+          items:
+            type: string
+        prerequisites:
+          type: array
+          items:
+            type: string
+        materials:
+          type: array
+          items:
+            $ref: '#/components/schemas/MaterialRequirement'
+        instructions:
+          type: array
+          minItems: 3
+          items:
+            $ref: '#/components/schemas/InstructionStep'
+        expected_outcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Outcome'
+        rubric:
+          $ref: '#/components/schemas/GradingRubric'
+        submission_format:
+          type: string
+          enum: [notebook, code, report, demo]
+        auto_gradable:
+          type: boolean
+          default: false
+        hints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hint'
+        common_errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorPattern'
+        extensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtensionTask'
+
+    MaterialRequirement:
+      type: object
+      required:
+        - type
+        - name
+        - tier
+      properties:
+        type:
+          type: string
+          enum: [software, hardware, data, simulation]
+        name:
+          type: string
+        version:
+          type: string
+        tier:
+          type: string
+          enum: [required, recommended, optional]
+        alternatives:
+          type: array
+          items:
+            type: string
+
+    InstructionStep:
+      type: object
+      required:
+        - step_number
+        - title
+        - content
+      properties:
+        step_number:
+          type: integer
+          minimum: 1
+        title:
+          type: string
+        content:
+          type: string
+        code_snippet:
+          $ref: '#/components/schemas/CodeExample'
+        checkpoint:
+          $ref: '#/components/schemas/Checkpoint'
+
+    Checkpoint:
+      type: object
+      required:
+        - description
+        - expected_result
+      properties:
+        description:
+          type: string
+        expected_result:
+          type: string
+        troubleshooting:
+          type: array
+          items:
+            $ref: '#/components/schemas/TroubleshootingTip'
+
+    TroubleshootingTip:
+      type: object
+      required:
+        - symptom
+        - solution
+      properties:
+        symptom:
+          type: string
+        solution:
+          type: string
+
+    Outcome:
+      type: object
+      required:
+        - description
+      properties:
+        description:
+          type: string
+        artifact:
+          type: string
+        verification:
+          type: string
+
+    Hint:
+      type: object
+      required:
+        - level
+        - content
+      properties:
+        level:
+          type: integer
+          minimum: 1
+          maximum: 3
+        content:
+          type: string
+
+    ErrorPattern:
+      type: object
+      required:
+        - error
+        - cause
+        - fix
+      properties:
+        error:
+          type: string
+        cause:
+          type: string
+        fix:
+          type: string
+
+    ExtensionTask:
+      type: object
+      required:
+        - title
+        - description
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        difficulty:
+          type: string
+          enum: [intermediate, advanced]
+
+    GradingRubric:
+      type: object
+      required:
+        - criteria
+        - total_points
+      properties:
+        criteria:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/RubricCriterion'
+        total_points:
+          type: integer
+          minimum: 1
+
+    RubricCriterion:
+      type: object
+      required:
+        - name
+        - points
+        - levels
+      properties:
+        name:
+          type: string
+        points:
+          type: integer
+        levels:
+          type: object
+          properties:
+            excellent:
+              type: string
+            good:
+              type: string
+            satisfactory:
+              type: string
+            needs_improvement:
+              type: string
+
+    # ============================================
+    # Simulation Configuration
+    # ============================================
+    SimulationConfig:
+      type: object
+      required:
+        - id
+        - platform
+        - robot_model
+      properties:
+        id:
+          type: string
+        platform:
+          type: string
+          enum: [mujoco, gazebo, isaac_sim]
+        robot_model:
+          type: string
+          description: Path to URDF/MJCF file
+        environment:
+          type: string
+        physics_settings:
+          $ref: '#/components/schemas/PhysicsParams'
+        visualization:
+          $ref: '#/components/schemas/VisualizationParams'
+        recording:
+          $ref: '#/components/schemas/RecordingParams'
+        launch_script:
+          type: string
+        notebook:
+          type: string
+        docker_image:
+          type: string
+
+    PhysicsParams:
+      type: object
+      properties:
+        timestep:
+          type: number
+          minimum: 0.0001
+          maximum: 0.01
+        gravity:
+          type: array
+          items:
+            type: number
+          minItems: 3
+          maxItems: 3
+        solver_iterations:
+          type: integer
+          minimum: 1
+        contact_model:
+          type: string
+
+    VisualizationParams:
+      type: object
+      properties:
+        camera_position:
+          type: array
+          items:
+            type: number
+          minItems: 3
+          maxItems: 3
+        render_mode:
+          type: string
+          enum: [headless, window, offscreen]
+        record_video:
+          type: boolean
+
+    RecordingParams:
+      type: object
+      properties:
+        format:
+          type: string
+          enum: [mp4, gif, png_sequence]
+        fps:
+          type: integer
+        resolution:
+          type: array
+          items:
+            type: integer
+          minItems: 2
+          maxItems: 2
+
+    # ============================================
+    # Ethics Content
+    # ============================================
+    EthicsSection:
+      type: object
+      required:
+        - primer
+        - reflection
+      properties:
+        primer:
+          type: string
+          minLength: 100
+          maxLength: 1000
+        callouts:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/EthicsCallout'
+        reflection:
+          $ref: '#/components/schemas/EthicsReflection'
+        case_study:
+          $ref: '#/components/schemas/CaseStudy'
+
+    EthicsCallout:
+      type: object
+      required:
+        - id
+        - trigger_concept
+        - content
+        - type
+      properties:
+        id:
+          type: string
+        trigger_concept:
+          type: string
+        content:
+          type: string
+        type:
+          type: string
+          enum: [consideration, principle, question]
+
+    EthicsReflection:
+      type: object
+      required:
+        - discussion_questions
+      properties:
+        discussion_questions:
+          type: array
+          minItems: 3
+          maxItems: 5
+          items:
+            type: string
+        stakeholders:
+          type: array
+          items:
+            type: string
+        frameworks:
+          type: array
+          items:
+            type: string
+
+    CaseStudy:
+      type: object
+      required:
+        - title
+        - domain
+        - scenario
+        - dilemma
+        - perspectives
+      properties:
+        title:
+          type: string
+        domain:
+          type: string
+          enum: [healthcare, manufacturing, disaster, research, consumer]
+        scenario:
+          type: string
+        dilemma:
+          type: string
+        perspectives:
+          type: array
+          minItems: 2
+          items:
+            $ref: '#/components/schemas/Perspective'
+        discussion_guide:
+          type: string
+
+    Perspective:
+      type: object
+      required:
+        - stakeholder
+        - position
+      properties:
+        stakeholder:
+          type: string
+        position:
+          type: string
+        concerns:
+          type: array
+          items:
+            type: string
+
+    # ============================================
+    # Assessment
+    # ============================================
+    AssessmentPackage:
+      type: object
+      required:
+        - module_id
+        - theory_quiz
+      properties:
+        module_id:
+          type: string
+        theory_quiz:
+          $ref: '#/components/schemas/Quiz'
+        lab_assessment:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabGrade'
+        simulation_project:
+          $ref: '#/components/schemas/Project'
+        ethics_component:
+          $ref: '#/components/schemas/EthicsAssessment'
+        exports:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExportFormat'
+
+    Quiz:
+      type: object
+      required:
+        - questions
+        - passing_score
+      properties:
+        questions:
+          type: array
+          minItems: 5
+          items:
+            $ref: '#/components/schemas/QuizQuestion'
+        time_limit_minutes:
+          type: integer
+          minimum: 10
+          maximum: 60
+        passing_score:
+          type: number
+          minimum: 60
+          maximum: 100
+        attempts_allowed:
+          type: integer
+          minimum: 1
+          default: 2
+
+    QuizQuestion:
+      type: object
+      required:
+        - id
+        - type
+        - question
+        - correct_answer
+        - points
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum: [multiple_choice, short_answer, code]
+        question:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        correct_answer:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+        points:
+          type: integer
+          minimum: 1
+        explanation:
+          type: string
+        learning_objective:
+          type: string
+
+    LabGrade:
+      type: object
+      required:
+        - lab_id
+        - weight
+      properties:
+        lab_id:
+          type: string
+        weight:
+          type: number
+          minimum: 0
+          maximum: 100
+
+    Project:
+      type: object
+      required:
+        - title
+        - description
+        - deliverables
+        - rubric
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        deliverables:
+          type: array
+          items:
+            $ref: '#/components/schemas/Deliverable'
+        rubric:
+          $ref: '#/components/schemas/GradingRubric'
+        due_week:
+          type: integer
+          minimum: 1
+
+    Deliverable:
+      type: object
+      required:
+        - name
+        - format
+      properties:
+        name:
+          type: string
+        format:
+          type: string
+        description:
+          type: string
+
+    EthicsAssessment:
+      type: object
+      required:
+        - format
+        - rubric
+      properties:
+        format:
+          type: string
+          enum: [reflection, discussion, case_analysis]
+        rubric:
+          $ref: '#/components/schemas/GradingRubric'
+        peer_review:
+          type: boolean
+          default: false
+
+    ExportFormat:
+      type: object
+      required:
+        - format
+        - file_path
+      properties:
+        format:
+          type: string
+          enum: [qti, canvas, blackboard, moodle, pdf, gradescope]
+        file_path:
+          type: string
+
+    # ============================================
+    # Case Study Entry (Industry Examples)
+    # ============================================
+    CaseStudyEntry:
+      type: object
+      required:
+        - id
+        - title
+        - domain
+        - company
+        - robot_platform
+        - year
+        - summary
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        domain:
+          type: string
+          enum: [manufacturing, healthcare, disaster, research, consumer]
+        company:
+          type: string
+        robot_platform:
+          type: string
+        year:
+          type: integer
+          minimum: 2023
+        summary:
+          type: string
+          minLength: 200
+          maxLength: 500
+        technical_details:
+          type: string
+        challenges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Challenge'
+        outcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Outcome'
+        lessons_learned:
+          type: array
+          items:
+            type: string
+        related_modules:
+          type: array
+          minItems: 1
+          items:
+            type: string
+        external_references:
+          type: array
+          items:
+            type: string
+            format: uri
+        last_verified:
+          type: string
+          format: date
+        status:
+          type: string
+          enum: [current, dated, archived]
+
+    Challenge:
+      type: object
+      required:
+        - category
+        - description
+      properties:
+        category:
+          type: string
+          enum: [technical, ethical, regulatory, economic]
+        description:
+          type: string
+        resolution:
+          type: string

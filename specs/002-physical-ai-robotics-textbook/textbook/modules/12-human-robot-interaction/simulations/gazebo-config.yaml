@@ -1,0 +1,14 @@
+# Module 12: HRI Simulation Config
+id: mod12-hri
+platform: gazebo
+human_simulation:
+  enabled: true
+  behavior_models: [predictable, unpredictable]
+safety_monitoring:
+  proximity_zones: [0.5m, 1.0m, 1.5m]
+  velocity_scaling: true
+  emergency_stop_distance: 0.3m
+collaborative_tasks:
+  - handover
+  - shared_workspace_assembly
+  - teaching_by_demonstration

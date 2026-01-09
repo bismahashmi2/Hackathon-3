@@ -1,0 +1,288 @@
+# MuJoCo Simulation Configuration for Module 08: Locomotion
+# This configuration defines the simulation environment for locomotion labs
+
+id: mod08-locomotion
+platform: mujoco
+version: "3.0+"
+
+# Primary robot model
+robot_model:
+  path: textbook/assets/robot-models/mujoco/simple-biped.xml
+  description: Simplified bipedal robot for balance and walking
+
+# Alternate models
+alternate_models:
+  - id: humanoid-walker
+    path: textbook/assets/robot-models/mujoco/humanoid-walker.xml
+    description: Full humanoid with legs, arms, and torso
+    labs: [lab-08-02, project]
+  - id: slip-runner
+    path: textbook/assets/robot-models/mujoco/slip-runner.xml
+    description: SLIP-based monopod for running
+    labs: [lab-08-03]
+  - id: cassie
+    path: textbook/assets/robot-models/mujoco/cassie.xml
+    description: Agility Robotics Cassie bipedal model
+    labs: [project]
+
+# Environment configuration
+environment:
+  scene: locomotion_arena
+  ground_plane: true
+  gravity: [0, 0, -9.81]
+
+  # Ground properties
+  ground:
+    friction: [0.8, 0.02, 0.001]  # Tangent, torsional, rolling
+    material: rubber
+
+  # Terrain variations (for advanced labs)
+  terrain_options:
+    - id: flat
+      description: Flat ground plane
+      roughness: 0.0
+    - id: rough
+      description: Random height variation ±2cm
+      roughness: 0.02
+    - id: slope
+      description: 10° incline
+      angle: 10  # degrees
+    - id: stairs
+      description: Standard stairs
+      rise: 0.18
+      run: 0.28
+
+# Physics settings
+physics:
+  timestep: 0.002  # 500 Hz for contact stability
+  gravity: [0, 0, -9.81]
+  solver_iterations: 50
+  integrator: implicitfast
+
+# Contact parameters for foot-ground interaction
+contact:
+  condim: 3  # Friction only (no torsion for feet)
+  friction: [0.8, 0.8, 0.0]
+  solref: [0.005, 1]  # Stiffer for better ground contact
+  solimp: [0.95, 0.99, 0.001]
+  margin: 0.002
+
+# Biped robot parameters
+robot_params:
+  simple_biped:
+    mass: 70  # kg
+    com_height: 0.9  # m
+    leg_length: 1.0  # m
+    foot_length: 0.25  # m
+    foot_width: 0.1  # m
+    hip_width: 0.15  # m
+
+  humanoid_walker:
+    mass: 75
+    com_height: 0.95
+    leg_segments:
+      thigh: { length: 0.4, mass: 8 }
+      shank: { length: 0.4, mass: 4 }
+      foot: { length: 0.25, mass: 1.5 }
+
+  slip_runner:
+    mass: 50
+    leg_rest_length: 0.8
+    leg_stiffness: 15000  # N/m
+    leg_damping: 100  # Ns/m
+
+# Sensing configuration
+sensors:
+  # IMU on torso
+  - name: torso_imu
+    type: imu
+    site: torso
+    noise:
+      gyro: 0.01  # rad/s std dev
+      accel: 0.1  # m/s² std dev
+
+  # Force sensors on feet
+  - name: left_foot_force
+    type: force
+    site: left_foot
+    noise: 1.0  # N std dev
+
+  - name: right_foot_force
+    type: force
+    site: right_foot
+    noise: 1.0
+
+  # Joint encoders
+  - name: joint_positions
+    type: jointpos
+    joints: all
+    noise: 0.001  # rad std dev
+
+# Lab-specific configurations
+lab_configs:
+  lab-08-01:
+    description: "Balance and Standing"
+    robot: simple-biped
+    tests:
+      - name: quiet_standing
+        duration: 10.0
+        success_metric: com_deviation < 0.02
+      - name: push_recovery
+        push_force: 50  # N
+        push_duration: 0.1  # s
+        push_time: 2.0
+        success_metric: recover_without_step
+      - name: capture_point
+        push_force: 100
+        success_metric: capture_point_in_support
+
+    control_params:
+      zmp_control:
+        kp: 500
+        kd: 100
+      com_height: 0.9
+
+  lab-08-02:
+    description: "Walking Gait Generation"
+    robot: humanoid-walker
+    walking_params:
+      step_length: 0.15  # m
+      step_width: 0.1  # m
+      step_time: 0.6  # s
+      double_support_ratio: 0.2
+      com_height: 0.8
+    tests:
+      - name: forward_walk
+        n_steps: 10
+        success_metric: no_fall
+      - name: speed_regulation
+        target_speed: 0.5  # m/s
+        tolerance: 0.1
+      - name: start_stop
+        walk_duration: 3.0
+        success_metric: stable_stop
+
+  lab-08-03:
+    description: "Dynamic Locomotion"
+    robot: slip-runner
+    running_params:
+      target_speed: 3.0  # m/s
+      apex_height: 1.0  # m
+      touchdown_angle_gain: 0.1
+    tests:
+      - name: steady_running
+        n_strides: 10
+        speed_tolerance: 0.2
+      - name: speed_change
+        initial_speed: 2.0
+        final_speed: 4.0
+        transition_time: 2.0
+      - name: energy_efficiency
+        metric: cost_of_transport
+        expected_range: [0.1, 0.5]
+
+# Performance metrics
+metrics:
+  balance:
+    - com_position_error
+    - com_velocity
+    - zmp_tracking_error
+    - stability_margin
+    - capture_point_margin
+
+  walking:
+    - step_length
+    - step_width
+    - step_time
+    - walking_speed
+    - com_trajectory_error
+    - zmp_trajectory_error
+    - foot_clearance
+
+  running:
+    - apex_height
+    - stride_length
+    - stride_frequency
+    - touchdown_angle
+    - liftoff_angle
+    - flight_time
+    - stance_time
+    - cost_of_transport
+
+# Visualization settings
+visualization:
+  render_mode: window
+  camera:
+    follow_robot: true
+    distance: 3.0
+    elevation: -20
+  show_com: true
+  show_zmp: true
+  show_support_polygon: true
+  show_capture_point: true
+  contact_force_scale: 0.01
+
+# Project configuration
+project:
+  push_recovery:
+    test_scenarios:
+      - name: standing_lateral_small
+        force: 30
+        direction: [0, 1, 0]
+        timing: standing
+      - name: standing_lateral_large
+        force: 60
+        direction: [0, 1, 0]
+        timing: standing
+      - name: walking_lateral_small
+        force: 30
+        direction: [0, 1, 0]
+        timing: mid_step
+      - name: walking_lateral_large
+        force: 50
+        direction: [0, 1, 0]
+        timing: mid_step
+
+    success_criteria:
+      max_recovery_steps: 2
+      max_recovery_time: 2.0  # s
+      must_not_fall: true
+
+# Testing configuration
+testing:
+  unit_tests:
+    - name: zmp_computation
+      test_cases:
+        - contacts: single_foot
+          expected_zmp: foot_center
+        - contacts: double_support
+          expected_zmp: between_feet
+
+    - name: stability_margin
+      test_cases:
+        - zmp: [0, 0]
+          support: [[-0.1, -0.05], [0.1, -0.05], [0.1, 0.05], [-0.1, 0.05]]
+          expected_margin: 0.05
+
+  integration_tests:
+    - name: walk_10_steps
+      success_rate: "> 0.95"
+    - name: push_recovery_standing
+      push_force: 50
+      success_rate: "> 0.9"
+
+# Docker/container setup
+docker:
+  image: mujoco-locomotion:mod08
+  build_context: docker/ros2-humble/
+  volumes:
+    - ./textbook:/textbook:ro
+    - ./data:/data:rw
+  gpu: true
+
+# References
+references:
+  - textbook/modules/08-locomotion/theory.md
+  - textbook/modules/08-locomotion/labs/
+  - textbook/case-studies/manufacturing/2024-amazon-digit.md
+  - "Kajita et al. (2014) Introduction to Humanoid Robotics"

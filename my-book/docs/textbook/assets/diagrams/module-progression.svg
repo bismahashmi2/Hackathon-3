@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <style>
+    .module-box { fill: #f0f0f0; stroke: #333; stroke-width: 2; rx: 8; }
+    .beginner { fill: #e8f5e9; }
+    .intermediate { fill: #fff3e0; }
+    .advanced { fill: #fce4ec; }
+    .module-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+    .module-id { font-weight: bold; font-size: 14px; }
+    .arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .tier-label { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #555; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle">
+    Physical AI &amp; Humanoid Robotics - Module Progression
+  </text>
+
+  <!-- Tier Labels -->
+  <text class="tier-label" x="50" y="100">BEGINNER</text>
+  <text class="tier-label" x="50" y="280">INTERMEDIATE</text>
+  <text class="tier-label" x="50" y="480">ADVANCED</text>
+
+  <!-- Tier Backgrounds -->
+  <rect x="120" y="60" width="660" height="120" fill="#e8f5e9" opacity="0.3" rx="10"/>
+  <rect x="120" y="190" width="660" height="200" fill="#fff3e0" opacity="0.3" rx="10"/>
+  <rect x="120" y="400" width="660" height="180" fill="#fce4ec" opacity="0.3" rx="10"/>
+
+  <!-- Beginner Modules -->
+  <rect class="module-box beginner" x="350" y="70" width="100" height="50"/>
+  <text class="module-text module-id" x="400" y="90">01</text>
+  <text class="module-text" x="400" y="108">Intro</text>
+
+  <rect class="module-box beginner" x="200" y="130" width="100" height="50"/>
+  <text class="module-text module-id" x="250" y="150">02</text>
+  <text class="module-text" x="250" y="168">Dynamics</text>
+
+  <rect class="module-box beginner" x="350" y="130" width="100" height="50"/>
+  <text class="module-text module-id" x="400" y="150">03</text>
+  <text class="module-text" x="400" y="168">Kinematics</text>
+
+  <rect class="module-box beginner" x="500" y="130" width="100" height="50"/>
+  <text class="module-text module-id" x="550" y="150">04</text>
+  <text class="module-text" x="550" y="168">Sensors</text>
+
+  <!-- Intermediate Modules -->
+  <rect class="module-box intermediate" x="200" y="210" width="100" height="50"/>
+  <text class="module-text module-id" x="250" y="230">05</text>
+  <text class="module-text" x="250" y="248">Control</text>
+
+  <rect class="module-box intermediate" x="350" y="210" width="100" height="50"/>
+  <text class="module-text module-id" x="400" y="230">06</text>
+  <text class="module-text" x="400" y="248">Planning</text>
+
+  <rect class="module-box intermediate" x="200" y="280" width="100" height="50"/>
+  <text class="module-text module-id" x="250" y="300">07</text>
+  <text class="module-text" x="250" y="318">Manipulation</text>
+
+  <rect class="module-box intermediate" x="350" y="280" width="100" height="50"/>
+  <text class="module-text module-id" x="400" y="300">08</text>
+  <text class="module-text" x="400" y="318">Locomotion</text>
+
+  <rect class="module-box intermediate" x="500" y="210" width="100" height="50"/>
+  <text class="module-text module-id" x="550" y="230">09</text>
+  <text class="module-text" x="550" y="248">ROS2</text>
+
+  <rect class="module-box intermediate" x="350" y="350" width="100" height="50"/>
+  <text class="module-text module-id" x="400" y="370">10</text>
+  <text class="module-text" x="400" y="388">Sim2Real</text>
+
+  <!-- Advanced Modules -->
+  <rect class="module-box advanced" x="200" y="420" width="100" height="50"/>
+  <text class="module-text module-id" x="250" y="440">11</text>
+  <text class="module-text" x="250" y="458">Learning</text>
+
+  <rect class="module-box advanced" x="350" y="420" width="100" height="50"/>
+  <text class="module-text module-id" x="400" y="440">12</text>
+  <text class="module-text" x="400" y="458">HRI</text>
+
+  <rect class="module-box advanced" x="500" y="420" width="100" height="50"/>
+  <text class="module-text module-id" x="550" y="440">13</text>
+  <text class="module-text" x="550" y="458">Autonomy</text>
+
+  <rect class="module-box advanced" x="350" y="510" width="100" height="50"/>
+  <text class="module-text module-id" x="400" y="530">14</text>
+  <text class="module-text" x="400" y="548">Capstone</text>
+
+  <!-- Arrows (Prerequisites) -->
+  <!-- 01 to 02, 03, 04 -->
+  <path class="arrow" d="M 370 120 L 280 130"/>
+  <path class="arrow" d="M 400 120 L 400 130"/>
+  <path class="arrow" d="M 430 120 L 520 130"/>
+
+  <!-- 02, 03 to 05 -->
+  <path class="arrow" d="M 250 180 L 250 210"/>
+  <path class="arrow" d="M 370 180 L 280 210"/>
+
+  <!-- 03, 04 to 06 -->
+  <path class="arrow" d="M 400 180 L 400 210"/>
+  <path class="arrow" d="M 550 180 L 430 210"/>
+
+  <!-- 04, 06 to 09 -->
+  <path class="arrow" d="M 550 180 L 550 210"/>
+  <path class="arrow" d="M 450 235 L 500 235"/>
+
+  <!-- 05, 06 to 07 -->
+  <path class="arrow" d="M 250 260 L 250 280"/>
+  <path class="arrow" d="M 370 260 L 280 280"/>
+
+  <!-- 05 to 08 -->
+  <path class="arrow" d="M 300 235 L 350 260 L 370 280"/>
+
+  <!-- 07, 08, 09 to 10 -->
+  <path class="arrow" d="M 280 330 L 370 350"/>
+  <path class="arrow" d="M 400 330 L 400 350"/>
+  <path class="arrow" d="M 520 260 L 430 350"/>
+
+  <!-- 05, 07 to 11 -->
+  <path class="arrow" d="M 200 260 L 180 380 L 220 420"/>
+  <path class="arrow" d="M 250 330 L 250 420"/>
+
+  <!-- 04, 07 to 12 -->
+  <path class="arrow" d="M 600 155 L 650 380 L 430 420"/>
+  <path class="arrow" d="M 300 305 L 350 420"/>
+
+  <!-- 08, 10, 11 to 13 -->
+  <path class="arrow" d="M 450 305 L 520 420"/>
+  <path class="arrow" d="M 430 400 L 520 420"/>
+  <path class="arrow" d="M 300 445 L 500 445"/>
+
+  <!-- All to 14 -->
+  <path class="arrow" d="M 250 470 L 370 510"/>
+  <path class="arrow" d="M 400 470 L 400 510"/>
+  <path class="arrow" d="M 550 470 L 430 510"/>
+
+  <!-- Legend -->
+  <rect x="620" y="70" width="15" height="15" fill="#e8f5e9" stroke="#333"/>
+  <text x="640" y="82" font-family="Arial" font-size="11">Beginner (Wk 1-4)</text>
+  <rect x="620" y="90" width="15" height="15" fill="#fff3e0" stroke="#333"/>
+  <text x="640" y="102" font-family="Arial" font-size="11">Intermediate (Wk 5-10)</text>
+  <rect x="620" y="110" width="15" height="15" fill="#fce4ec" stroke="#333"/>
+  <text x="640" y="122" font-family="Arial" font-size="11">Advanced (Wk 11-14)</text>
+</svg>

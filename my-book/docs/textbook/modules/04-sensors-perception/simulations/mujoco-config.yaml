@@ -1,0 +1,191 @@
+# MuJoCo Simulation Configuration for Module 04: Sensors and Perception
+# This configuration defines the simulation environment for sensor labs
+
+id: mod04-sensors-perception
+platform: mujoco
+version: "3.0+"
+
+# Robot model with sensors
+robot_model:
+  path: textbook/assets/robot-models/mujoco/humanoid-sensors.xml
+  description: Humanoid model with IMU and camera sensors
+
+# Alternate models for different labs
+alternate_models:
+  - id: humanoid-camera
+    path: textbook/assets/robot-models/mujoco/humanoid-camera.xml
+    description: Model with detailed camera configuration
+    labs: [lab-04-02]
+  - id: simple-imu-box
+    path: textbook/assets/robot-models/mujoco/simple-imu-box.xml
+    description: Simple body with IMU for basic sensor testing
+    labs: [lab-04-01]
+
+# Environment configuration
+environment:
+  scene: indoor_lab
+  ground_plane: true
+  obstacles:
+    - type: box
+      position: [2.0, 0.0, 0.5]
+      size: [0.5, 0.5, 1.0]
+      color: [1.0, 0.0, 0.0, 1.0]  # Red target for detection
+    - type: cylinder
+      position: [1.5, 1.0, 0.3]
+      size: [0.2, 0.6]
+      color: [0.0, 1.0, 0.0, 1.0]  # Green obstacle
+
+# Physics settings
+physics:
+  timestep: 0.002  # 500 Hz for accurate sensor simulation
+  gravity: [0, 0, -9.81]
+  solver_iterations: 50
+  integrator: implicitfast
+
+# Sensor configurations
+sensors:
+  # IMU sensors attached to torso
+  imu:
+    - name: torso_accelerometer
+      type: accelerometer
+      site: torso_imu_site
+      noise_std: 0.05  # m/s²
+      bias: [0.02, -0.01, 0.03]  # Constant bias
+      cutoff_freq: 100  # Hz
+
+    - name: torso_gyroscope
+      type: gyro
+      site: torso_imu_site
+      noise_std: 0.005  # rad/s
+      bias: [0.001, -0.002, 0.001]  # Constant bias
+      cutoff_freq: 100  # Hz
+
+    - name: torso_magnetometer
+      type: magnetometer
+      site: torso_imu_site
+      noise_std: 0.1  # μT
+
+  # Camera sensors
+  cameras:
+    - name: head_camera
+      type: rgb
+      position: [0.05, 0, 0.1]  # Relative to head
+      orientation: [0, 0, 0]  # Forward-looking
+      fov_y: 60  # degrees
+      resolution: [640, 480]
+
+    - name: depth_camera
+      type: depth
+      position: [0.05, 0, 0.1]
+      orientation: [0, 0, 0]
+      fov_y: 60
+      resolution: [640, 480]
+      near: 0.1  # meters
+      far: 10.0  # meters
+
+  # Additional sensors for advanced labs
+  advanced:
+    - name: lidar_2d
+      type: rangefinder
+      site: torso_lidar_site
+      range: [0.1, 30.0]  # meters
+      resolution: 360  # rays
+      noise_std: 0.02  # meters
+
+# Visualization settings
+visualization:
+  render_mode: window  # window | offscreen | headless
+  camera_tracking: head_camera
+  show_sensors: true
+  show_contact_forces: true
+  frame_rate: 30
+
+# Recording configuration
+recording:
+  enabled: false
+  output_dir: textbook/build/recordings/
+  format: mp4
+  fps: 30
+  include_depth: true
+
+# Lab-specific configurations
+lab_configs:
+  lab-04-01:
+    description: "IMU Data Reading"
+    duration: 10.0  # seconds
+    initial_state: standing
+    perturbations:
+      - type: impulse
+        time: 2.0
+        body: torso
+        force: [50, 0, 0]  # N
+    sensors_active: [torso_accelerometer, torso_gyroscope]
+
+  lab-04-02:
+    description: "Camera Image Processing"
+    duration: 5.0
+    initial_state: standing
+    camera_active: head_camera
+    target_objects:
+      - name: red_marker
+        position: [2.0, 0.0, 1.0]
+        color: red
+        size: 0.1
+    sensors_active: [head_camera, depth_camera]
+
+  lab-04-03:
+    description: "Sensor Fusion EKF"
+    duration: 10.0
+    initial_state: standing
+    perturbations:
+      - type: continuous_rotation
+        axis: [0, 1, 0]  # Pitch axis
+        amplitude: 0.5  # rad
+        frequency: 0.3  # Hz
+    sensors_active: [torso_accelerometer, torso_gyroscope]
+    ground_truth: true  # Enable ground truth recording
+
+# Noise models for realistic simulation
+noise_models:
+  imu_noise:
+    # Based on typical MEMS IMU specifications
+    accelerometer:
+      white_noise_density: 0.003  # m/s²/√Hz
+      bias_instability: 0.02  # m/s²
+      random_walk: 0.0003  # m/s²/√s
+    gyroscope:
+      white_noise_density: 0.0003  # rad/s/√Hz
+      bias_instability: 0.005  # rad/s (deg/s equivalent)
+      random_walk: 0.00003  # rad/s/√s
+
+  camera_noise:
+    # Gaussian noise for RGB
+    rgb_std: 5  # pixel intensity (0-255)
+    # Depth noise model (quadratic with distance)
+    depth_base_std: 0.005  # meters
+    depth_distance_coeff: 0.001  # meters per meter of distance
+
+# Docker/container setup
+docker:
+  image: mujoco-sensors:mod04
+  build_context: docker/ros2-humble/
+  volumes:
+    - ./textbook:/textbook:ro
+    - ./data:/data:rw
+  environment:
+    - DISPLAY=${DISPLAY}
+    - MUJOCO_GL=egl  # For headless rendering
+
+# Testing configuration
+testing:
+  validate_sensors: true
+  expected_ranges:
+    accelerometer: [-20, 20]  # m/s²
+    gyroscope: [-10, 10]  # rad/s
+    depth: [0.1, 10.0]  # meters
+
+# References
+references:
+  - textbook/modules/04-sensors-perception/theory.md
+  - textbook/modules/04-sensors-perception/labs/
+  - specs/002-physical-ai-robotics-textbook/research.md#r1-simulation-platforms

@@ -1,0 +1,147 @@
+# MuJoCo Simulation Configuration
+# Module 03: Kinematics Fundamentals
+
+id: sim-03-kinematics
+platform: mujoco
+robot_model: custom/planar_arm.xml
+environment: default
+
+# Physics Settings
+physics_settings:
+  timestep: 0.002          # 2ms timestep (500 Hz)
+  gravity: [0, 0, -9.81]   # Earth gravity (can be disabled for pure kinematics)
+  solver_iterations: 50
+  integrator: Euler
+
+# Visualization Settings
+visualization:
+  camera_position: [1.5, 1.5, 1.5]
+  camera_lookat: [0, 0, 0.5]
+  render_mode: window
+  record_video: false
+  show_joint_axes: true
+  show_body_frames: true
+
+# Recording Settings
+recording:
+  format: mp4
+  fps: 30
+  resolution: [1920, 1080]
+  output_dir: "recordings/module-03/"
+
+# Entry Points
+launch_script: "scripts/launch_sim_03.py"
+notebook: "notebooks/03-kinematics-fundamentals.ipynb"
+docker_image: "physicalai-textbook/mujoco:3.0"
+
+# Module-Specific Settings
+module_config:
+  # Model definitions for labs
+  models:
+    # Simple 2-DOF planar arm for FK/IK labs
+    planar_2dof:
+      xml: |
+        <mujoco>
+          <option gravity="0 0 0"/>
+          <worldbody>
+            <light diffuse="1 1 1" pos="0 0 2"/>
+            <geom type="plane" size="2 2 0.1" rgba="0.9 0.9 0.9 1"/>
+            <body name="link1" pos="0 0 0.5">
+              <joint name="joint1" type="hinge" axis="0 0 1" range="-180 180"/>
+              <geom type="capsule" fromto="0 0 0 0.5 0 0" size="0.02" rgba="0 0.5 1 1"/>
+              <body name="link2" pos="0.5 0 0">
+                <joint name="joint2" type="hinge" axis="0 0 1" range="-180 180"/>
+                <geom type="capsule" fromto="0 0 0 0.4 0 0" size="0.02" rgba="1 0.3 0 1"/>
+                <site name="end_effector" pos="0.4 0 0" size="0.03" rgba="0 1 0 1"/>
+              </body>
+            </body>
+          </worldbody>
+          <actuator>
+            <position name="act1" joint="joint1" kp="100"/>
+            <position name="act2" joint="joint2" kp="100"/>
+          </actuator>
+        </mujoco>
+      link_lengths: [0.5, 0.4]
+      joint_limits: [[-3.14, 3.14], [-3.14, 3.14]]
+
+    # 3-DOF spatial arm for intermediate exercises
+    spatial_3dof:
+      xml: |
+        <mujoco>
+          <option gravity="0 0 -9.81"/>
+          <worldbody>
+            <light diffuse="1 1 1" pos="0 0 3"/>
+            <geom type="plane" size="2 2 0.1"/>
+            <body name="base" pos="0 0 0.1">
+              <geom type="cylinder" size="0.1 0.05"/>
+              <body name="link1" pos="0 0 0.05">
+                <joint name="shoulder_yaw" type="hinge" axis="0 0 1"/>
+                <geom type="capsule" fromto="0 0 0 0 0 0.3" size="0.03"/>
+                <body name="link2" pos="0 0 0.3">
+                  <joint name="shoulder_pitch" type="hinge" axis="0 1 0"/>
+                  <geom type="capsule" fromto="0 0 0 0.4 0 0" size="0.025"/>
+                  <body name="link3" pos="0.4 0 0">
+                    <joint name="elbow" type="hinge" axis="0 1 0"/>
+                    <geom type="capsule" fromto="0 0 0 0.3 0 0" size="0.02"/>
+                    <site name="end_effector" pos="0.3 0 0" size="0.03"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </worldbody>
+        </mujoco>
+
+    # Full humanoid for advanced lab
+    humanoid:
+      path: "humanoid/humanoid.xml"
+      end_effectors:
+        - right_hand
+        - left_hand
+        - right_foot
+        - left_foot
+
+  # Lab exercise configurations
+  labs:
+    - lab_id: "lab-03-01"
+      model: "planar_2dof"
+      exercises:
+        - name: "forward_kinematics"
+          description: "Compute end-effector position from joint angles"
+          test_cases:
+            - joints: [0, 0]
+              expected_pos: [0.9, 0]
+            - joints: [1.57, 0]
+              expected_pos: [0, 0.9]
+            - joints: [0.785, 0.785]
+              expected_pos: [0.474, 0.757]
+
+    - lab_id: "lab-03-02"
+      model: "planar_2dof"
+      exercises:
+        - name: "inverse_kinematics"
+          description: "Compute joint angles for target position"
+          test_cases:
+            - target: [0.6, 0.4]
+              tolerance: 0.001
+            - target: [0.1, 0.1]
+              should_fail: true  # Inside inner radius
+
+    - lab_id: "lab-03-03"
+      model: "humanoid"
+      exercises:
+        - name: "humanoid_ik"
+          description: "Position humanoid hands using IK"
+          targets:
+            right_hand: [0.3, -0.3, 1.2]
+            left_hand: [0.3, 0.3, 1.2]
+
+  # Visualization helpers
+  visualization_tools:
+    workspace_grid:
+      resolution: 50
+      bounds: [-1, 1, -1, 1]
+
+    trajectory_trail:
+      enabled: true
+      length: 100
+      color: [0, 1, 0, 0.5]

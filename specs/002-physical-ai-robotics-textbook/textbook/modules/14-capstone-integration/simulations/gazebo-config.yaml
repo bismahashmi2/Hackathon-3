@@ -1,0 +1,21 @@
+# Module 14: Capstone Integration Config
+id: mod14-capstone
+platform: gazebo
+supported_projects:
+  - mobile_manipulation
+  - assistive_robotics
+  - collaborative_assembly
+  - search_and_rescue
+  - agricultural_automation
+
+integration_support:
+  ros2_full_stack: true
+  multi_robot: true
+  hardware_interface: true
+  custom_sensors: true
+
+evaluation:
+  autonomous_operation: required
+  real_time_performance: required
+  fault_tolerance: recommended
+  user_interface: optional
