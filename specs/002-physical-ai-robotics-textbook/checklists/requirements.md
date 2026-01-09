@@ -30,25 +30,7 @@
 - [x] No implementation details leak into specification
 
 ## Notes
-
-<<<<<<< HEAD
-- All clarification markers resolved:
-
-  - **FR-007 (Industry Distribution)**:
-    Case studies will focus on:
-    - Healthcare (assistive robots, rehabilitation, elder care)
-    - Manufacturing (assembly, inspection, logistics)
-    - Disaster Response (search-and-rescue, hazardous environments)
-
-  - **FR-008 (Lab Accessibility Level)**:
-    Labs will follow a hybrid accessibility model:
-    - Core labs runnable entirely in simulation environments
-    - Optional low-cost physical platforms (e.g., Raspberry Pi,
-      microcontrollers, modular or 3D-printed components)
-    - No mandatory requirement for expensive humanoid robots
-
-=======
 - All clarification markers resolved via research.md:
   - FR-007: Industry distribution defined (Manufacturing 35%, Healthcare 25%, Research 20%, Disaster 12%, Consumer 8%)
   - FR-008: Three-tier accessibility model specified (Tier 1 simulation-only covers 100% of learning objectives)
->>>>>>> 002-physical-ai-robotics-textbook
+
