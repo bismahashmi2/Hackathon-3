@@ -30,7 +30,7 @@
 - [x] No implementation details leak into specification
 
 ## Notes
-
 - All clarification markers resolved via research.md:
   - FR-007: Industry distribution defined (Manufacturing 35%, Healthcare 25%, Research 20%, Disaster 12%, Consumer 8%)
   - FR-008: Three-tier accessibility model specified (Tier 1 simulation-only covers 100% of learning objectives)
+
