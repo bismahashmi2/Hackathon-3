@@ -131,7 +131,7 @@ The collaboration follows Mercedes-Benz's comprehensive safety approach:
 │  │  │  Interaction Zone           │  │  │
 │  │  │  (Direct Human Contact OK)  │  │  │
 │  │  └─────────────────────────────┘  │  │
-│  │  (Reduced Speed, Monitored)      │  │
+│  │  (Reduced Speed, Monitored)       │  │
 │  └───────────────────────────────────┘  │
 │  (Full Speed, Safety Rated Scanner)     │
 └─────────────────────────────────────────┘

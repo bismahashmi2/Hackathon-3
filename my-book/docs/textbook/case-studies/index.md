@@ -1,3 +1,8 @@
+---
+title: Case Studies
+sidebar_position: 99
+---
+
 # Case Studies Index
 
 This directory contains real-world case studies illustrating Physical AI and humanoid robotics applications across various industries.
@@ -105,3 +110,4 @@ Case studies are reviewed quarterly to ensure currency:
 - **current**: Information verified within 12 months
 - **dated**: 12-18 months old, "Current as of" warning added
 - **archived**: Moved to archive/, kept for historical reference
+

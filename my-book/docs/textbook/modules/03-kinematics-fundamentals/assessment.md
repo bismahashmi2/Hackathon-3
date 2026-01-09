@@ -31,7 +31,7 @@ c) Translation along the x-axis (link length)
 d) Rotation about the x-axis
 
 **Correct Answer**: c
-**Explanation**: In DH convention, 'a' is the link length—the distance along the x-axis from z_{i-1} to z_i.
+**Explanation**: In DH convention, 'a' is the link length—the distance along the x-axis from `z_{i-1}` to `z_i`.
 **Learning Objective**: Apply DH parameters to derive transformation matrices
 
 ---
@@ -159,16 +159,8 @@ def test_fk_2dof():
     """Test forward kinematics accuracy."""
     # θ1=0, θ2=0 should give (L1+L2, 0)
     x, y = forward_kinematics_2dof(0, 0, 0.5, 0.3)
-```python
-```python
     assert abs(x - 0.8) < 1e-6
-```
-```
-```python
-```python
     assert abs(y) < 1e-6
-```
-```
 
 def test_ik_reaches_target():
     """Test that IK solution reaches target."""
@@ -176,27 +168,21 @@ def test_ik_reaches_target():
     solution = inverse_kinematics_2dof(*target)
     if solution:
         achieved = forward_kinematics_2dof(*solution)
-        error = np.sqrt((achieved[0]-target[0])**2 + (achieved[1]-target[1])**2)
-```python
-```python
+        error = np.sqrt(
+            (achieved[0] - target[0])**2 +
+            (achieved[1] - target[1])**2
+        )
         assert error < 1e-4
-```
-```
 
 def test_ik_unreachable():
     """Test that unreachable points return None."""
-    # Point outside workspace
     solution = inverse_kinematics_2dof(2.0, 0)
     assert solution is None
 
 def test_jacobian_dimensions():
     """Test Jacobian matrix has correct shape."""
     J = jacobian_2dof(0, 0)
-```python
-```python
     assert J.shape == (2, 2)
-```
-```
 ```
 
 ## Simulation Project (35%)
