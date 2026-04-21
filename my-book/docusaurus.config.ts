@@ -1,26 +1,30 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
-
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: "Physical AI & Humanoid Robotics",
+  tagline: "A Comprehensive 14-Module Textbook",
+  favicon: "img/favicon.ico",
 
   stylesheets: [
-  {
-    href: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',
-    type: 'text/css',
-    integrity:
-      'sha384-n8MVd4RsNIU0k7E2iK5nU5L0P0B7xvFeoDyAJ6Dig0KkPxDYGZJ5y+2QF0ZK7Sk',
-    crossorigin: 'anonymous',
-  },
-],
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css",
+      type: "text/css",
+      integrity:
+        "sha384-n8MVd4RsNIU0k7E2iK5nU5L0P0B7xvFeoDyAJ6Dig0KkPxDYGZJ5y+2QF0ZK7Sk",
+      crossorigin: "anonymous",
+    },
+    {
+      // Add Academy accent for book mode
+      href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
+      type: "text/css",
+    },
+  ],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -28,136 +32,164 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://bismahashmi2.github.io',
+  url: "https://bismahashmi2.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/Hackathon-3',
+  baseUrl: "/Hackathon-3",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'bismahashmi2', // Usually your GitHub org/user name.
-  projectName: 'Hackathon-3', // Usually your repo name.
+  organizationName: "bismahashmi2", // Usually your GitHub org/user name.
+  projectName: "Hackathon-3", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: "throw",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-           remarkPlugins: [remarkMath],
-           rehypePlugins: [rehypeKatex],
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarPath: "./sidebars.ts",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+          // Edit URL for textbook content - points to your repository
+          editUrl: "https://github.com/bismahashmi2/Hackathon-3/tree/main/docs",
+          routeBasePath: "docs",
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    // Textbook social card
+    image: "img/textbook-logo.png",
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    announcementBar: {
+      id: "textbook_release",
+      content:
+        "📚 This is a comprehensive 14-module textbook. Begin with <strong>Module 01 - Introduction to Physical AI</strong>",
+      backgroundColor: "#2563eb",
+      textColor: "#fff",
+      isCloseable: true,
+    },
     navbar: {
-      title: 'My Site',
+      title: "Physical AI & Humanoid Robotics",
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: "Textbook Logo",
+        src: "img/textbooklogo.png",
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
+          to: "/docs/textbook/appendices/module-progression",
+          label: "Textbook",
+          position: "left",
+          activeBaseRegex: "^/docs(/textbook)?(/|$)",
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
+          type: "doc",
+          docId: "textbook/modules/introduction-physical-ai/01",
+          label: "Start Learning",
+          position: "left",
+          className: "navbar-button-primary",
+        },
+        {
+          type: "search",
+          position: "right",
         },
       ],
     },
+    docs: {
+      sidebar: {
+        hideable: false,
+        autoCollapseCategories: false,
+      },
+    },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
+        // {
+        //   title: "Textbook",
+        //   items: [
+        //     {
+        //       label: "Module Progression",
+        //       to: "/docs/textbook/appendices/module-progression",
+        //     },
+        //     {
+        //       label: "Learning Paths",
+        //       to: "/docs/textbook/appendices/module-progression#learning-paths",
+        //     },
+        //     {
+        //       label: "Case Studies",
+        //       to: "/docs/textbook/case-studies",
+        //     },
+        //   ],
+        // },
         {
-          title: 'Docs',
+          title: "Modules",
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              type: "doc",
+              docId: "textbook/modules/introduction-physical-ai/01",
+              label: "Beginner (1-4)",
+              //to: "/docs/01-introduction-physical-ai",
+            },
+            {
+              type: "doc",
+              docId: "textbook/modules/introduction-physical-ai/02",
+              label: "Intermediate (5-10)",
+              //to: "/docs/textbook/modules/05-dynamics-control/theory",
+            },
+            {
+              type: "doc",
+              docId: "textbook/modules/introduction-physical-ai/02",
+              label: "Advanced (11-14)",
+              //to: "/docs/textbook/modules/11-learning-based-control/theory",
             },
           ],
         },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
-          ],
-        },
+        // {
+        //   title: "Resources",
+        //   items: [
+        //     {
+        //       label: "Code Examples",
+        //       to: "/docs/textbook/assets/code-examples/01/README",
+        //     },
+        //     {
+        //       label: "Diagrams",
+        //       to: "/docs/textbook/assets/diagrams/README",
+        //     },
+        //     {
+        //       label: "Robot Models",
+        //       to: "/docs/textbook/assets/robot-models/mujoco/README",
+        //     },
+        //   ],
+        // },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Physical AI & Humanoid Robotics Textbook. All rights reserved.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 3,
     },
   } satisfies Preset.ThemeConfig,
 };
