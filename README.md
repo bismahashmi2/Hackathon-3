@@ -1,4 +1,4 @@
-\# 📘 Physical AI \& Humanoid Robotics Textbook
+\ 📘 Physical AI \& Humanoid Robotics Textbook
 
 
 
@@ -14,7 +14,7 @@ It is a structured digital textbook designed to teach \*\*Physical AI \& Humanoi
 
 
 
-\## 🚀 Live Project
+\ 🚀 Live Project
 
 🔗 https://bismahashmi2.github.io/Hackathon-3
 
@@ -24,7 +24,7 @@ It is a structured digital textbook designed to teach \*\*Physical AI \& Humanoi
 
 
 
-\## 🎯 Project Goal
+\ 🎯 Project Goal
 
 
 
@@ -40,7 +40,7 @@ Instead of manually building every section, I focused on defining structured req
 
 
 
-\## 🧠 What I Did
+\ 🧠 What I Did
 
 
 
@@ -58,7 +58,7 @@ Instead of manually building every section, I focused on defining structured req
 
 
 
-\## ⚙️ Tech Stack
+\ ⚙️ Tech Stack
 
 
 
@@ -78,7 +78,7 @@ Instead of manually building every section, I focused on defining structured req
 
 
 
-\## 💡 Key Learning
+\ 💡 Key Learning
 
 
 
@@ -94,7 +94,7 @@ It also demonstrated how structured inputs can be transformed into complete educ
 
 
 
-\## 📌 Context
+\ 📌 Context
 
 
 
@@ -106,7 +106,7 @@ This project was completed as part of a hackathon under the GIAIC Agentic AI \& 
 
 
 
-\## 📬 Feedback
+\ 📬 Feedback
 
 
 
