@@ -149,11 +149,11 @@ const config: Config = {
             },
             {
               label: "Intermediate (5-10)",
-              to: "/docs/textbook/modules/05-dynamics-control/05",
+              to: "/docs/textbook/modules/dynamics-control/05",
             },
             {
               label: "Advanced (11-14)",
-              to: "/docs/textbook/modules/11-learning-based-control/11",
+              to: "/docs/textbook/modules/learning-based-control/11",
             },
           ],
         },
