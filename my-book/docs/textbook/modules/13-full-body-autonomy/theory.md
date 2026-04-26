@@ -1,7 +1,6 @@
 ---
 id: "13"
 title: "Full-Body Autonomy"
-slug: "full-body-autonomy"
 week: 13
 difficulty: advanced
 prerequisites: ["08", "10", "11"]

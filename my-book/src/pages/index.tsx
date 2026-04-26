@@ -5,7 +5,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import ModuleTiers from '@site/src/components/ModuleTiers';
-
 import styles from './index.module.css';
 
 function BookHero() {
@@ -45,7 +44,7 @@ function BookHero() {
           <div className={styles.heroButtons}>
             <Link
               className={clsx('button', 'button--primary', 'button--lg', styles.ctaButton)}
-              to="doc:01"
+              to={`/docs/textbook/modules/introduction-physical-ai/01`}
               rel="noopener noreferrer">
               Start Learning →
             </Link>

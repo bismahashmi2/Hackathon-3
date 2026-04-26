@@ -1,7 +1,6 @@
 ---
 id: "06"
 title: "Motion Planning"
-slug: "motion-planning"
 week: 6
 difficulty: intermediate
 prerequisites: ["03", "04"]

@@ -1,7 +1,6 @@
 ---
 id: "10"
 title: "Simulation to Real"
-slug: "simulation-to-real"
 week: 10
 difficulty: intermediate
 prerequisites: ["07", "08", "09"]

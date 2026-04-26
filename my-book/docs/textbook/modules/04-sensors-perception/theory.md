@@ -1,7 +1,6 @@
 ---
 id: "04"
 title: "Sensors and Perception"
-slug: "sensors-perception"
 week: 4
 difficulty: beginner
 prerequisites: ["01"]

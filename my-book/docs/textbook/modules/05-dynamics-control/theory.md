@@ -1,7 +1,6 @@
 ---
 id: "05"
 title: "Dynamics and Control"
-slug: "dynamics-control"
 week: 5
 difficulty: intermediate
 prerequisites: ["02", "03"]

@@ -1,7 +1,6 @@
 ---
 id: "12"
 title: "Human-Robot Interaction"
-slug: "human-robot-interaction"
 week: 12
 difficulty: advanced
 prerequisites: ["04", "07"]

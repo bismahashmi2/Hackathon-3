@@ -1,7 +1,6 @@
 ---
 id: "02"
 title: "Rigid Body Dynamics"
-slug: "rigid-body-dynamics"
 week: 2
 difficulty: beginner
 prerequisites: ["01"]

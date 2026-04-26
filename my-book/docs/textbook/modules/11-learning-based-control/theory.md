@@ -1,7 +1,6 @@
 ---
 id: "11"
 title: "Learning-Based Control"
-slug: "learning-based-control"
 week: 11
 difficulty: advanced
 prerequisites: ["05", "07"]

@@ -1,7 +1,6 @@
 ---
 id: "01"
 title: "Introduction to Physical AI"
-slug: "introduction-physical-ai"
 week: 1
 difficulty: beginner
 prerequisites: []

@@ -1,7 +1,6 @@
 ---
 id: "07"
 title: "Manipulation"
-slug: "manipulation"
 week: 7
 difficulty: intermediate
 prerequisites: ["05", "06"]

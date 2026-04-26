@@ -4,31 +4,6 @@ import Heading from '@theme/Heading';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
-// Mapping function to get the correct directory name for each module
-function getModuleDirectoryName(moduleNumber: string, moduleTitle: string): string {
-  // Define explicit mappings for modules where the pattern doesn't follow a simple rule
-  const explicitMappings: Record<string, string> = {
-    '01': '01-introduction-physical-ai',
-    '04': '04-sensors-perception', // "Sensors and Perception" -> removes "and"
-    '05': '05-dynamics-control', // "Dynamics and Control" -> removes "and"
-    '10': '10-simulation-to-real', // "Simulation to Real" -> keeps "to"
-  };
-
-  if (explicitMappings[moduleNumber]) {
-    return explicitMappings[moduleNumber];
-  }
-
-  // For other modules, use a standard kebab-case conversion
-  const kebabCaseTitle = moduleTitle
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/--+/g, '-') // Replace multiple hyphens with single hyphen
-    .trim();
-
-  return `${moduleNumber.padStart(2, '0')}-${kebabCaseTitle}`;
-}
-
 // Function to generate the correct doc ID format
 function getModuleDocId(moduleNumber: string, moduleTitle: string): string {
   // Define explicit mappings for doc IDs based on the available IDs from Docusaurus
@@ -215,13 +190,20 @@ function ModuleCard({ module }: { module: Module }) {
       <p className={styles.moduleDescription}>{module.description}</p>
       <div className={styles.moduleFooter}>
         <span className={styles.labBadge}>{module.labs} labs</span>
-        <Link
-          className={styles.moduleLink}
-          to={`doc:${module.number}`}
-          target="_blank"
-          rel="noopener noreferrer">
-          View →
-        </Link>
+       <Link 
+  className={styles.moduleLink} 
+  /* 
+     Change: 
+     1. Use getModuleDocId instead of getModuleDirectoryName
+     2. Remove the hardcoded '/theory' or '/introduction-physical-ai' at the end
+     3. Your getModuleDocId already returns 'path/01', so we just prepend the base path
+  */
+  to={`/docs/textbook/modules/${getModuleDocId(module.number, module.title)}`} 
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  View →
+</Link>
       </div>
     </div>
   );
@@ -302,7 +284,7 @@ export default function ModuleTiers(): ReactNode {
             <div className={styles.ctaButtons}>
               <Link
                 className={clsx('button', 'button--primary', 'button--lg', styles.primaryButton)}
-                to="doc:01"
+                to={`/docs/textbook/modules/${getModuleDocId('01', 'Introduction to Physical AI')}`}
                 target="_blank"
                 rel="noopener noreferrer">
                 Start with Module 01

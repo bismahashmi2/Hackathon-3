@@ -1,7 +1,6 @@
 ---
 id: "09"
 title: "ROS2 Integration"
-slug: "ros2-integration"
 week: 9
 difficulty: intermediate
 prerequisites: ["04", "06"]

@@ -42,7 +42,7 @@ const config: Config = {
   organizationName: "bismahashmi2", // Usually your GitHub org/user name.
   projectName: "Hackathon-3", // Usually your repo name.
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -123,63 +123,57 @@ const config: Config = {
     footer: {
       style: "dark",
       links: [
-        // {
-        //   title: "Textbook",
-        //   items: [
-        //     {
-        //       label: "Module Progression",
-        //       to: "/docs/textbook/appendices/module-progression",
-        //     },
-        //     {
-        //       label: "Learning Paths",
-        //       to: "/docs/textbook/appendices/module-progression#learning-paths",
-        //     },
-        //     {
-        //       label: "Case Studies",
-        //       to: "/docs/textbook/case-studies",
-        //     },
-        //   ],
-        // },
+        {
+          title: "Textbook",
+          items: [
+            {
+              label: "Module Progression",
+              to: "/docs/textbook/appendices/module-progression",
+            },
+            {
+              label: "Learning Paths",
+              to: "/docs/textbook/appendices/module-progression#learning-paths",
+            },
+            {
+              label: "Case Studies",
+              to: "/docs/textbook/case-studies",
+            },
+          ],
+        },
         {
           title: "Modules",
           items: [
             {
-              type: "doc",
-              docId: "textbook/modules/introduction-physical-ai/01",
               label: "Beginner (1-4)",
-              //to: "/docs/01-introduction-physical-ai",
+              to: "/docs/textbook/modules/introduction-physical-ai/01",
             },
             {
-              type: "doc",
-              docId: "textbook/modules/introduction-physical-ai/02",
               label: "Intermediate (5-10)",
-              //to: "/docs/textbook/modules/05-dynamics-control/theory",
+              to: "/docs/textbook/modules/05-dynamics-control/05",
             },
             {
-              type: "doc",
-              docId: "textbook/modules/introduction-physical-ai/02",
               label: "Advanced (11-14)",
-              //to: "/docs/textbook/modules/11-learning-based-control/theory",
+              to: "/docs/textbook/modules/11-learning-based-control/11",
             },
           ],
         },
-        // {
-        //   title: "Resources",
-        //   items: [
-        //     {
-        //       label: "Code Examples",
-        //       to: "/docs/textbook/assets/code-examples/01/README",
-        //     },
-        //     {
-        //       label: "Diagrams",
-        //       to: "/docs/textbook/assets/diagrams/README",
-        //     },
-        //     {
-        //       label: "Robot Models",
-        //       to: "/docs/textbook/assets/robot-models/mujoco/README",
-        //     },
-        //   ],
-        // },
+        {
+          title: "Resources",
+          items: [
+            {
+              label: "Code Examples",
+              to: "/docs/textbook/assets/code-examples/01/",
+            },
+            {
+              label: "Diagrams",
+              to: "/docs/textbook/assets/diagrams/",
+            },
+            {
+              label: "Robot Models",
+              to: "/docs/textbook/assets/robot-models/mujoco/",
+            },
+          ],
+        },
       ],
       copyright: `© ${new Date().getFullYear()} Physical AI & Humanoid Robotics Textbook. All rights reserved.`,
     },

@@ -1,7 +1,6 @@
 ---
 id: "03"
 title: "Kinematics Fundamentals"
-slug: "kinematics-fundamentals"
 week: 3
 difficulty: beginner
 prerequisites: ["02"]

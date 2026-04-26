@@ -1,7 +1,6 @@
 ---
 id: "08"
 title: "Locomotion"
-slug: "locomotion"
 week: 8
 difficulty: intermediate
 prerequisites: ["05"]
